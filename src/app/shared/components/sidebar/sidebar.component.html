@@ -1,0 +1,33 @@
+<!-- <ul>
+        <li *ngFor="let menuItem of menuItems;let i = index" routerLink="{{menuItem.path}}">
+                <span>{{menuItem.title}}</span>
+        </li>
+    </ul> -->
+
+<div class="sidebar-expanded mm-sideBar">
+    <ul class="list-group mm-listGroup">
+        <li routerLinkActive="active" *ngFor="let menuItem of menuItems; let  i = index"
+            class="list-group-item d-flex align-items-start flex-column mm-listGroupItem">
+            <a class="nav-link" [routerLink]="[menuItem.path]" >
+                <div class=" d-flex w-100 justify-content-start align-items-center  mm-listMuted">
+                    <span class="material-icons mm-icon"> {{ menuItem.icon }}</span>
+                    <span id="collapse-text" class="menu-collapsed mm-text"> {{ menuItem.title }}</span>
+
+                </div>
+            </a>
+            <!-- <ng-template #default>
+                <a class="w-100" [ngClass]="{'nav-link': true, 'open': isOpen}" (click)="submenulistToggle(i, menuItem.path)">
+                    <div class="d-flex w-100 justify-content-start align-items-center mm-listMuted position-relative">
+                        <span class="material-icons mm-icon"> {{ menuItem.icon }}</span>
+                        <span id="collapse-text" class="menu-collapsed mm-text"> {{ menuItem.title }}</span >
+                          <span class="material-icons mm-arrowdown">
+                            keyboard_arrow_down
+                            </span>
+                    </div>
+                </a>
+            </ng-template> -->
+            
+
+        </li>
+    </ul>
+</div>

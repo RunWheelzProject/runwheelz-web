@@ -1,0 +1,90 @@
+<div class="card">
+
+
+    <div style="text-align: center;color: rgb(122, 92, 14);">
+        <h1>RUN WHEELZ STAFF</h1>
+    </div>
+
+
+    <p-table #dt1 [value]="staffdata" dataKey="id" [paginator]="true" [rows]="10" [showCurrentPageReport]="true"
+        styleClass="p-datatable-customers p-datatable-gridlines"
+        currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+        [rowsPerPageOptions]="[10,15,20,100]" [filterDelay]="0"
+        [globalFilterFields]="['id','name','roleName','phoneNumber','aadharNumber','addressLine']">
+
+        <!-- Global Filter User Input-->
+
+        <ng-template pTemplate="caption">
+            <button pButton pRipple *ngIf="loggedInUserRole=== 'ADMIN'" label="Add New Staff" icon="pi pi-plus"
+                class="p-button-success p-mr-2" routerLink="/staffregister"></button>
+            <div class="search">
+                <input class="search" pInputText type="text" pInputText size="20"
+                    (input)="dt1.filterGlobal($any($event.target).value, 'contains')"
+                    placeholder="Global Filter"><br><br>
+            </div>
+        </ng-template>
+
+
+
+        <ng-template pTemplate="header">
+            <tr>
+                <th pSortableColumn="id">ID<p-sortIcon field="id"></p-sortIcon>
+                </th>
+                <th pSortableColumn="name">NAME<p-sortIcon field="name"></p-sortIcon>
+                </th>
+                <th pSortableColumn="roleName">ROLENAME<p-sortIcon field="roleName"></p-sortIcon>
+                </th>
+                <th pSortableColumn="aadharNumber">AADHAR NUMBER<p-sortIcon field="aadharNumber"></p-sortIcon>
+                </th>
+                <th pSortableColumn="phoneNumber">PHONE NUMBER<p-sortIcon field="phoneNumber"></p-sortIcon>
+                </th>
+                <th pSortableColumn="addressLine">ADDRESS<p-sortIcon field="addressLine"></p-sortIcon>
+                </th>
+                <th>ACTION </th>
+            </tr>
+        </ng-template>
+
+
+        <ng-template pTemplate="body" let-staff>
+            <tr>
+                <td>{{staff.id}}</td>
+                <td>{{staff.name}}</td>
+                <td>{{staff.roleName}}</td>
+                <td>{{staff.aadharNumber}}</td>
+                <td>{{staff.phoneNumber}}</td>
+                <td>{{staff.addressLine}}</td>
+                <td>
+                    <a [routerLink]="['/viewstaff/', staff.id]">
+                        <span class="material-icons mm-eye"> visibility </span></a>
+
+                    <!-- <button pButton pRipple icon="pi pi-eye" class="p-button-rounded p-button-primary mr-2"
+                        type="button" [routerLink]="['/viewstaff/', staff.id]"></button> -->
+
+
+                    <a *ngIf="loggedInUserRole=== 'ADMIN'" [routerLink]="['/editstaff/', staff.id]">
+                        <span class="material-icons mm-edit">edit </span></a>
+
+
+                    <!-- <div *ngIf="loggedInUserRole=== 'ADMIN'">
+                        <button pButton pRipple icon="pi pi-user-edit" class="p-button-rounded p-button-primary mr-2"
+                            type="button" [routerLink]="['/editstaff/', staff.id]"></button>
+                    </div> -->
+
+
+                    <a *ngIf="loggedInUserRole=== 'ADMIN'" (click)="deleteUser(staff)" >
+                        <span class="material-icons mm-delete"> delete </span></a>
+
+
+                    <!-- <div *ngIf="loggedInUserRole=== 'ADMIN'">
+                        <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-danger"
+                            (click)="deleteUser(staff)"></button>
+                    </div> -->
+                </td>
+            </tr>
+        </ng-template>
+        
+
+    </p-table>
+</div>
+
+<p-confirmDialog [style]="{width: '450px'}"></p-confirmDialog>

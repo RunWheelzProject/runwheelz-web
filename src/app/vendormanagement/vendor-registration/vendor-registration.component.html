@@ -1,0 +1,38 @@
+<div style="padding-top:.9rem;">
+    <div class="card" style="width: 22rem; margin:0 auto;">
+        <div class="text-center">
+            <h1>Vendor Registration</h1>
+        </div>
+        <div class="text-center">
+
+            <form [formGroup]="vendorRegister" (ngSubmit)="onSubmit()">
+                <div class="col-sm-12">
+                    <div class="form-group"><br>
+                        <label for="">Enter Phone Number To Register </label><br>
+                        <div class="input-box">
+                            <img class="country-flag"
+                                src="https://upload.wikimedia.org/wikipedia/commons/4/41/Flag_of_India.svg">
+        
+                            <span class="prefix">+91</span>
+        
+                            <input (keypress)="keyPress($event)" required type="text" formControlName="phonenumber"
+                                class="form-control" placeholder="Enter Your Mobile Number"
+                                [ngClass]="{ 'is-invalid': submitted && f['phonenumber'].errors }"> <br><br>
+                                
+                        </div>
+                        <div *ngIf="submitted && f['phonenumber'].errors" class="invalid-feedback">
+                            <div *ngIf="f['phonenumber'].errors['required']">Phone number is required</div>
+                            <div
+                                *ngIf="f['phonenumber'].errors['pattern'] || f['phonenumber'].errors['maxlength'] || f['phonenumber'].errors['minlength']">
+                                Phone number must be at least 10 numbers</div>
+                        </div>
+                    </div>
+                </div><br>
+                <input type="submit" class="btn btn-primary" value="Proceed">
+            </form>
+        </div>
+        <div class="error" *ngIf="errorMessage">
+            {{errorMessage}}
+        </div>
+    </div>
+</div>
