@@ -1,0 +1,57 @@
+<div class="d-flex flex-row-reverse bd-highlight">
+    <a href="#" routerLink="/vendor-new-registration/vendor-new-registration" class="btn btn-primary">Back</a>
+</div>
+
+<hr />
+<div style="width: 400px;">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div class="form-group row">
+            <label for="id" class="col-sm-4 col-form-label">ID</label>
+            <div class="col-sm-7">
+                <input type="text"  formControlName="id" class="form-control" id="id" required [(ngModel)]="vendorrequestdata.id"
+                    >
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="phoneNumber" class="col-sm-4 col-form-label">PhoneNumber</label>
+            <div class="col-sm-7">
+                <input type="text" formControlName="phoneNumber" class="form-control" id="phoneNumber" required
+                    [(ngModel)]="vendorrequestdata.phoneNumber" >
+            </div>
+        </div>
+
+
+        <div class="form-group row">
+            <label for="ownerName" class="col-sm-4 col-form-label">OwnerName</label>
+            <div class="col-sm-7">
+                <input type="text" formControlName="ownerName" class="form-control" id="ownerName" required
+                    [(ngModel)]="vendorrequestdata.ownerName" >
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="garageName" class="col-sm-4 col-form-label">GarageName</label>
+            <div class="col-sm-7">
+                <input type="text" formControlName="garageName" class="form-control" id="garageName" required
+                    [(ngModel)]="vendorrequestdata.garageName" >
+            </div>
+        </div>
+
+
+        <div class="form-group row">
+            <label for="latitude" class="col-sm-4 col-form-label">Latitude</label>
+            <div class="col-sm-7">
+                <input type="text" formControlName="latitude" class="form-control" id="latitude" required [(ngModel)]="vendorrequestdata.latitude"
+                    >
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="longitude" class="col-sm-4 col-form-label">Longitude</label>
+            <div class="col-sm-7">
+                <input type="text" formControlName="longitude" class="form-control" id="longitude" required
+                    [(ngModel)]="vendorrequestdata.longitude" >
+            </div>
+        </div>
+        <button type="submit" class="btn btn-success">Update</button>
+    </form>
+</div>

@@ -1,0 +1,69 @@
+<div class="card">
+    <div style="text-align: center;color: rgb(122, 92, 14);">
+        <h1>RUN WHEELZ VENDORSREQUESTLIST</h1>
+    </div>
+
+
+    <p-table #dt1 [value]="vendorrequestdata" dataKey="id" [paginator]="true" [rows]="10"
+        [showCurrentPageReport]="true" styleClass="p-datatable-customers p-datatable-gridlines"
+        currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+        [rowsPerPageOptions]="[10,15,20,100]" [filterDelay]="0" [globalFilterFields]="['id']">
+
+
+
+        <ng-template pTemplate="caption">
+            <button pButton pRipple *ngIf="loggedInUserRole=== 'ADMIN'" label="Add New Vendor Request" icon="pi pi-plus"
+                class="p-button-success p-mr-2" routerLink="/VendorRegistrationRequest"></button>
+            
+            <div class="search">
+                <input class="search" pInputText type="text" pInputText size="20"
+                    (input)="dt1.filterGlobal($any($event.target).value, 'contains')"
+                    placeholder="Global Filter"><br><br>
+            </div>
+        </ng-template>
+
+
+
+        <ng-template pTemplate="header">
+            <tr>
+                <th pSortableColumn="id">ID<p-sortIcon field="id"></p-sortIcon>
+                </th>
+                <th pSortableColumn="phoneNumber">PHONE NUMBER<p-sortIcon field="phoneNumber"></p-sortIcon>
+                </th>
+                <th pSortableColumn="ownerName">NAME<p-sortIcon field="ownerName"></p-sortIcon>
+                </th>
+                <th pSortableColumn="garageName">Garage Name<p-sortIcon field="garageName"></p-sortIcon>
+                </th>
+                <th>ACTION </th>
+            </tr>
+        </ng-template>
+
+
+        <ng-template pTemplate="body" let-vendorrequest>
+            <tr>
+                <td>{{vendorrequest.id}}</td>
+                <td>{{vendorrequest.phoneNumber}}</td>
+                <td>{{vendorrequest.ownerName}}</td>
+                <td>{{vendorrequest.garageName}}</td>
+                <td>
+                    <a [routerLink]="['/viewvendorrequest/', vendorrequest.id]">
+                        <span class="material-icons mm-edit"> visibility </span></a>
+
+                    <a *ngIf="loggedInUserRole=== 'ADMIN''MARKETING_AGENT'"
+                        [routerLink]="['/editvendorrequest/', vendorrequest.id]">
+                        <span class="material-icons mm-edit">edit </span></a>
+
+                    <a href="#" *ngIf="loggedInUserRole=== 'ADMIN'"
+                        [routerLink]="['/assignvendorrequest/', vendorrequest.id]"
+                        class="btn btn-info">Assign</a>
+
+                    
+
+                </td>
+            </tr>
+        </ng-template>
+
+
+    </p-table>
+</div>
+

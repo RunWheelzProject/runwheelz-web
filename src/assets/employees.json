@@ -1,0 +1,30 @@
+{
+    "employees": [
+      {
+        "id": "1",
+        "firstName": "Staff"
+      
+      },
+      {
+        "id": "2",
+        "firstName": "Vendor"
+      
+      },
+      {
+        "id": "3",
+        "firstName": "MarketingAgents"
+        
+      },
+      {
+        "id": "4",
+        "firstName": "Executive"
+        
+      },
+      {
+        "id": "5",
+        "firstName": "Customers"
+        
+      }
+     
+    ]
+}

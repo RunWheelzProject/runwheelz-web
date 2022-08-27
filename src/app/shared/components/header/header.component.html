@@ -1,0 +1,58 @@
+<mat-toolbar  style="background-color:#4e0258">
+  <mat-toolbar-row>
+      <img src="../../assets/new logo.jpg" class="logo">&nbsp;
+      <!-- <span class="title"><b>Run Wheelz</b></span> -->
+      <h5 id="projectname" class="animate-charcter">run wheelz</h5>&nbsp;&nbsp;
+      <!-- <button mat-mini-fab color="" mat-icon-button (click)="toggleSideBar()"> -->
+        <!-- <div class="sidenav" [ngClass]="collapsed ? 'sidenav-collapsed':''"> -->
+         <mat-icon mat-icon-button (click)="toggleSideBar()" style="color:white;margin-top:3.5px;" class="menu-button">menu</mat-icon>
+         <button  mat-mini-fab color="info" class="notification-button" [matMenuTriggerFor]="bell"> <mat-icon>notifications_none</mat-icon>
+          <!-- <mat-icon matBadge="4" matBadgeColor="success" class="notification-button__icon" mat-mini-fab [matMenuTriggerFor]="bell">notifications_none</mat-icon>  -->
+         </button>    
+       <mat-menu #bell="matMenu" class="myMenu" yPosition="above" xPosition="before" class="notification-menu">
+         <button mat-menu-item class="notification-menu__button">
+           <mat-icon class="notification-menu__icon_yellow">local_offer</mat-icon>Check out this awesome ticket
+         </button>
+         <button mat-menu-item class="notification-menu__button">
+           <mat-icon class="notification-menu__icon_green">thumb_up</mat-icon>What is the best way to get ...
+         </button>
+         <button mat-menu-item class="notification-menu__button">
+           <mat-icon class="notification-menu__icon_pink">notifications_none</mat-icon>This is just a simple notification
+         </button>
+         <button mat-menu-item class="notification-menu__button">
+           <mat-icon class="notification-menu__icon_blue">local_grocery_store</mat-icon>12 new orders has arrived today
+         </button>
+       </mat-menu>
+       &nbsp;&nbsp;
+       <button  mat-mini-fab color="" class="profile" [matMenuTriggerFor]="profile"> <mat-icon>account_circle_none</mat-icon>
+
+        <!-- <mat-icon matBadge="4" matBadgeColor="primary" class="account_circle_button__icon" mat-mini-fab [matMenuTriggerFor]="profile">account_circle_none</mat-icon> -->
+
+      <!-- <mat-icon>account_circle</mat-icon> -->
+
+    </button>
+    <mat-menu #profile="matMenu" class="myMenu" yPosition="above" xPosition="before" [overlapTrigger]="false">
+      <button mat-menu-item>
+        <mat-icon>person</mat-icon>
+        <span>Profile</span>
+      </button>
+      <button mat-menu-item>
+        <mat-icon>inbox</mat-icon>
+        <span>Inbox</span>
+      </button>
+      <button mat-menu-item>
+        <mat-icon>settings</mat-icon>
+        <span>settings</span>
+      </button>
+    <button mat-menu-item (click)="onLoggedout()">
+      <mat-icon>exit_to_app</mat-icon>
+      <span>Logout</span></button>
+    </mat-menu>
+  
+
+<!-- </ul> -->
+
+
+</mat-toolbar-row>
+
+</mat-toolbar>

@@ -1,0 +1,78 @@
+
+<div class="d-flex flex-row-reverse bd-highlight">
+    <a href="#" routerLink="/vendor-new-registration/vendor-new-registration" class="btn btn-primary">Back</a>
+</div>
+<hr/>
+<div class="container" >
+    <h1>Select An Executive</h1>
+    <table>
+        <th>
+        <tr>
+        <td><h3>Id</h3></td>
+        <td> : </td>
+        <td><h3> {{vendorrequestdata.id}}</h3></td>
+      </tr>
+      <tr>
+        <td><h3>PhoneNumber</h3></td>
+        <td> : </td>
+        <td><h3> {{vendorrequestdata.phoneNumber}}</h3></td>
+      </tr>
+      <tr>
+        <td><h3>OwnerName</h3></td>
+        <td> : </td>
+        <td><h3> {{vendorrequestdata.ownerName}}</h3></td>
+      </tr>
+      <tr>
+        <td><h3>GarageName</h3></td>
+        <td> : </td>
+        <td><h3> {{vendorrequestdata.garageName}}</h3></td>
+      </tr>
+      <tr>
+        <td><h3>Latitude</h3></td>
+        <td> : </td>
+        <td><h3> {{vendorrequestdata.latitude}}</h3></td>
+      </tr>
+      <tr>
+        <td><h3>Longitude</h3></td>
+        <td> : </td>
+        <td><h3> {{vendorrequestdata.longitude}}</h3></td>
+      </tr>
+    </th>
+    </table>
+    
+</div>
+
+
+<div class="card">
+    <div class="mm-storeBanner">
+        <form [formGroup]="selectAnExecutive" class="text-center border border-light p-5">
+            <div class="container-fluid mm-contFlue">
+
+                <div class="row">
+                    <hr />
+                    <div class="form-group row">
+                        <label for="selectanexecutive" class="col-sm-2 col-form-label">SelectAnExecutive <span
+                                class="star text-danger">*</span></label>
+                        <div class="col-sm-5">
+                            <p-dropdown placeholder="- Select  -" [options]="executiveList" optionLabel="executiveName"
+                                formControlName="selectanexecutive" [style]="{width: '100%'}">
+                            </p-dropdown>
+                            <div class="text-error"
+                                *ngIf="selectAnExecutive.controls['selectanexecutive'].invalid && (selectAnExecutive.controls['selectanexecutive'].dirty || selectAnExecutive.controls['selectanexecutive'].touched)">
+                                <div *ngIf="selectAnExecutive.controls['selectanexecutive']">
+                                    Please Select An Executive
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 pr-0">
+                            <button class="btn btn-primary" type="button" (click)="onSubmitAssignAnExecutive()">Assign</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div> 

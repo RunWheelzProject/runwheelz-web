@@ -1,0 +1,44 @@
+.country-flag{
+    height:23px;
+	width:23px;
+}
+.country-code{
+	color: rgb(252, 252, 252);
+	font-size: 35px;
+padding-right: 2px;
+}
+  
+.error{
+	color: rgb(243, 39, 39);
+		font-size: 15px;
+}
+
+.input-box{
+display: flex;
+    align-items: center;
+    max-width: 300px;
+    background: #fff;
+    border: 1px solid #a0a0a0;
+    border-radius: 4px;
+    padding-left: 0.5rem;
+	padding-top: 0.1rem;
+	padding-bottom: 0.001rem;
+    overflow: hidden;
+    font-family: sans-serif;
+}
+
+.input-box .prefix {
+    font-weight: 500;
+    font-size: 16px;
+    color: rgb(70, 62, 62);
+  }
+
+.input-box input {
+    
+    font-size: 15px;
+    background: #fff;
+    border: none;
+    outline: none;
+    padding: 0.7rem;
+  }
+  

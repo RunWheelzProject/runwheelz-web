@@ -1,0 +1,82 @@
+
+.logo {
+//position: absolute;
+//left: 65px;
+margin-left: 0px; width: 35px;
+margin-top: 0px;
+
+}
+#projectname { //letter-spacing: 1px;
+// padding-top: 8px;
+margin-top: 1px;
+font-size: 1.05em;
+//left:115px;
+//position: absolute;
+//font-family: 'sans-serif';
+//font-family: 'Times New Roman', Times, serif;
+font-family: 'roboto';
+font-weight: bold;
+}
+.animate-charcter {
+  text-transform: uppercase;
+  background-image: linear-gradient(-225deg,
+  #eed80e 10%,
+  #f1f7f0 29%,
+  #e1e9eb 67%,
+  #fcfbfa 100%);
+  background-size: auto auto;
+  background-clip: border-box;
+  background-size: 200% auto;
+  color: #fff;
+  background-clip: text;
+  lighting-color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textclip 8s linear infinite;
+  display: inline-block;
+  font-size: 190px;
+  left: 70px;
+  margin-top: 10px;
+
+}
+
+@keyframes textclip {
+
+  to {
+
+    background-position: 200% center;
+
+  }
+
+}
+
+.menu-button{
+  width:100px;
+
+}
+.notification-button{
+ float:right;
+ position:absolute;
+ right:180px;
+ //margin-top: 8px;
+}
+.profile{
+ //float:right;
+ position:absolute;
+ //right:100px;
+ left:1380px;
+
+}
+/* .profile1{
+left:1020px;
+  margin-top: 8px;
+  padding-right: 1000px;
+}
+
+/*ul{
+  list-style: none;
+  display: inline-block;
+  right: 1500px; 
+  }
+  */
+

@@ -1,0 +1,108 @@
+
+ <div class="d-flex flex-row-reverse bd-highlight">
+    <a href="#" routerLink="/vendormanagement/vendormanagement" class="btn btn-primary">Back</a>
+</div>
+<hr />
+<div style="width: 400px;">
+    <form  [formGroup]="form"  (ngSubmit)="onSubmit()">
+        <div class="form-group row">
+            <label for="id" class="col-sm-4 col-form-label">ID</label>
+            <div class="col-sm-7">
+                <input type="text" class="form-control"  required [(ngModel)]="vendordata.id" formControlName="id">
+            </div>
+        </div>
+        
+        <div class="form-group row">
+            <label for="phoneNumber" class="col-sm-4 col-form-label">PhoneNumber</label>
+            <div class="col-sm-7">
+                <input type="text" class="form-control"  required [(ngModel)]="vendordata.phoneNumber"
+                formControlName="phoneNumber">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="vendorPin" class="col-sm-4 col-form-label">VendorPin</label>
+            <div class="col-sm-7">
+                <input type="text" class="form-control"  required [(ngModel)]="vendordata.vendorPin"
+                formControlName="vendorPin">
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="ownerName" class="col-sm-4 col-form-label">OwnerName</label>
+            <div class="col-sm-7">
+                <input type="text" class="form-control"  required [(ngModel)]="vendordata.ownerName" formControlName="ownerName">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="garageName" class="col-sm-4 col-form-label">GarageName</label>
+            <div class="col-sm-7">
+                <input type="text" class="form-control"  required [(ngModel)]="vendordata.garageName" formControlName="garageName">
+            </div>
+        </div>
+
+
+        <div class="form-group row">
+            <label for="aadharNumber" class="col-sm-4 col-form-label">Aadhar Number</label>
+            <div class="col-sm-7">
+                <input type="text" class="form-control"  required [(ngModel)]="vendordata.aadharNumber"
+                formControlName="aadharNumber">
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="addressLine" class="col-sm-4 col-form-label">Address</label>
+            <div class="col-sm-7">
+                <input type="text" class="form-control" required [(ngModel)]="vendordata.addressLine"
+                formControlName="addressLine">
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="city" class="col-sm-4 col-form-label">city</label>
+            <div class="col-sm-7">
+                <input type="text" class="form-control"  required [(ngModel)]="vendordata.city" formControlName="city">
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="state" class="col-sm-4 col-form-label">State</label>
+            <div class="col-sm-7">
+                <input type="text" class="form-control"  required [(ngModel)]="vendordata.state" formControlName="state">
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="zipcode" class="col-sm-4 col-form-label">Zipcode</label>
+            <div class="col-sm-7">
+                <input type="text" class="form-control"  required [(ngModel)]="vendordata.zipcode"
+                formControlName="zipcode">
+            </div>
+        </div>
+         <!-- <div class="form-group row">
+            <label for="currentLocation" class="col-sm-4 col-form-label">CurrentLocation</label>
+            <div class="col-sm-7">
+                <button type="text" style="background-color:rgb(164, 161, 182)"
+                                 class="form-control"
+                                (click)="getLocation()">Browse Location</button>
+            </div>
+        </div> -->
+        <div class="form-group row">
+            <label for="latitude" class="col-sm-4 col-form-label">Latitude</label>
+            <div class="col-sm-7">
+                <input type="text" class="form-control"  required [(ngModel)]="vendordata.latitude"
+                formControlName="latitude">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="longitude" class="col-sm-4 col-form-label">Longitude</label>
+            <div class="col-sm-7">
+                <input type="text" class="form-control"  required [(ngModel)]="vendordata.longitude"
+                formControlName="longitude">
+            </div>
+        </div>
+        <button type="submit" class="btn btn-success">Update</button>
+    </form>
+</div>  
+
+
+

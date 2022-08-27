@@ -1,0 +1,45 @@
+.pi-times-circle:before {
+    content: "\e90c";
+    margin-top: -18px;
+    color: #EB2A2A;
+    background-color: $white;
+    border-radius: 100px;
+}
+
+.p-multiselect.p-multiselect-chip .p-multiselect-token {
+    padding: 1px 7px !important;
+    background-color: #EBF5F2;
+    border-radius: 10px;
+}
+
+.p-multiselect-panel .p-multiselect-items .p-multiselect-item.p-highlight {
+    background-color: #EBF5F2;
+}
+
+// .pi-check:before {
+//     background-color: #059669;
+// }
+/*.........responsive.........*/
+
+@media (max-width: 576px) {
+    .mm-export {
+        .mm-exporttabs {
+            .mm-exportDetails {
+                .mm-exportDetailstabs {
+                    .mm-nav-pills {
+                        border: .1px solid #DDDDDD !important;
+                        li {
+                            a {
+                                font-size: 11px !important;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .width-mm {
+        display: inline-block;
+        width: 130px !important;
+    }
+}

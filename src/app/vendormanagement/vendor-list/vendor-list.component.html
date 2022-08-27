@@ -1,0 +1,89 @@
+<div class="card">
+    <div style="text-align: center;color: rgb(122, 92, 14);">
+        <h1>RUN WHEELZ VENDORS</h1>
+    </div>
+    
+
+    <p-table #dt1 [value]="vendordata" dataKey="id" [paginator]="true" [rows]="10" [showCurrentPageReport]="true"
+        styleClass="p-datatable-customers p-datatable-gridlines"
+        currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+        [rowsPerPageOptions]="[10,15,20,100]" [filterDelay]="0" [globalFilterFields]="['id']">
+
+        
+
+        <ng-template pTemplate="caption">
+
+            <button pButton pRipple *ngIf="loggedInUserRole=== 'ADMIN'" label="Add New Vendor" icon="pi pi-plus" class="p-button-success p-mr-2"
+                routerLink="/vendorregister"></button>
+
+            <div class="search">
+                <input class="search" pInputText type="text" pInputText size="20"
+                    (input)="dt1.filterGlobal($any($event.target).value, 'contains')"
+                    placeholder="Global Filter"><br><br>
+            </div>
+        </ng-template>
+
+
+
+        <ng-template pTemplate="header">
+            <tr>
+                <th pSortableColumn="id">ID<p-sortIcon field="id"></p-sortIcon>
+                </th>
+                <th pSortableColumn="ownerName">OWNER NAME<p-sortIcon field="ownerName"></p-sortIcon>
+                </th>
+                <th pSortableColumn="aadharNumber">AADHAR NUMBER<p-sortIcon field="aadharNumber"></p-sortIcon>
+                </th>
+                <th pSortableColumn="phoneNumber">PHONE NUMBER<p-sortIcon field="phoneNumber"></p-sortIcon>
+                </th>
+                <th pSortableColumn="addressLine">ADDRESS<p-sortIcon field="addressLine"></p-sortIcon>
+                </th>
+                <th>ACTION </th>
+            </tr>
+        </ng-template>
+
+
+        <ng-template pTemplate="body" let-vendor>
+            <tr>
+                <td>{{vendor.id}}</td>
+                <td>{{vendor.ownerName}}</td>
+                <td>{{vendor.aadharNumber}}</td>
+                <td>{{vendor.phoneNumber}}</td>
+                <td>{{vendor.addressLine}}</td>
+                <td>
+                    
+
+                    <!-- <button pButton pRipple icon="pi pi-eye" class="p-button-rounded p-button-primary mr-2"
+                        type="button" [routerLink]="['/viewvendor/', vendor.id]"></button> -->
+
+                        
+                            <a   [routerLink]="['/viewvendor/', vendor.id]">
+                                <span class="material-icons mm-edit"> visibility </span></a>
+                        
+
+                        
+                            <a *ngIf="loggedInUserRole=== 'ADMIN'"  [routerLink]="['/editvendor/', vendor.id]">
+                                <span class="material-icons mm-edit">edit </span></a>
+                        
+
+                        
+                            <a *ngIf="loggedInUserRole=== 'ADMIN'"  (click)="deleteUser(vendor)">
+                                <span class="material-icons mm-delete"> delete </span></a>
+                        
+                    
+
+                    <!-- <button pButton pRipple icon="pi pi-user-edit" class="p-button-rounded p-button-primary mr-2"
+                        type="button" [routerLink]="['/editvendor/', vendor.id]"></button> -->
+
+                   
+
+                    <!-- <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-danger"
+                        (click)="deleteUser(vendor)"></button> -->
+                </td>
+            </tr>
+        </ng-template>
+        
+
+    </p-table>
+</div>
+
+<p-confirmDialog [style]="{width: '450px'}"></p-confirmDialog>
