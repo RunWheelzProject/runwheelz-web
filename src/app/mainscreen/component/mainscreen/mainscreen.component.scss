@@ -1,113 +1,109 @@
-/*::-webkit-scrollbar {
-  display: none;
-}*/
-* {
+
+*{
   margin: 0;
   padding: 0;
-
-
-
-  /*overflow-x: hidden;
-   overflow-y:inherit;*/
-
+ 
 }
 
 
-
-
-.wrapHead {
+.wrapHead{
   width: 90%;
   margin: 0 auto;
   transition: all ease-in-out 0.5s;
   padding-top: 10px;
 
+  
 }
-
-.wrapHead.fixed-to-top {
+.wrapHead.fixed-to-top{
   width: 1500px;
 }
-
-.sticky-header {
-
+.sticky-header{
+  
+  
   position: fixed;
-  width: 1529px;
-  margin-left: -8px;
-  background: #4e0258;
-  // background: linear-gradient(135deg,cyan 60%,orange 10%  );*/
-  /*background: linear-gradient(-90deg,#d38312,#a83279);*/
-  /*background:#b130c2;*/
-  margin-top: -10px;
-  padding: 10px 0;
-  z-index: 1;
-  transition: all ease-in-out 0.5s;
+width: 1529px;
+margin-left: -8px;
+background: #4e0258;
+top: 0;
+margin-top: -10px;
+padding: 10px 0;
+z-index: 1;
+transition: all ease-in-out 0.5s;
 }
 
 
 
-.logo {
-  position: absolute;
-  left: 20px;
-  width: 45px;
-  margin-top: 0px;
-}
+.logo{
+position: absolute;
 
-#projectname {
-  letter-spacing: 1px;
-  padding-top: 12px;
-  margin-top: 0px;
-  font-size: 2.3em;
-  position: absolute;
-  font-family: 'Lucida Sans' sans-serif;
-  font-weight: bold;
-  left: 80px;
+left:25px;
+width: 45px;
+
+margin-top: 4px;
 }
 
 
-nav {
-  float: right;
-  margin-top: 10px;
-}
 
-nav ul {
+nav{
+float:right;
+margin-top: 10px;
+margin-right: 50px;
+} 
+nav ul{
   list-style-type: none;
 }
 
-nav li {
+nav li{
   display: inline-block;
-  margin: 5px;
-
+  margin:10px;
+  margin-right: 30px;
+  
 }
 
-nav li a {
-  padding: 4px;
-  color: rgb(250, 250, 250);
+nav li a{
+  padding: px ;
+  color:rgb(250, 250, 250);
   text-decoration: none;
   transition: all ease-in-out 0.5s;
-  font: size 10%;
 }
-
-nav li a:hover {
-  font-size: 20px;
+nav li a:hover{
+  
+  font-size:25px;
+  
 }
+button{
+  
 
-.btn {
-  width: 100px;
   background-color: #0a0a0a;
-  color: white;
-  text-align: center;
-  float: right;
-  margin-left: 25px;
+  color:white;
+   text-align:center;
+;
+ float:right;
+ margin-left: 5px;
+
+ }
+ #projectname{
+  letter-spacing: 1px;
+  padding-top: 0px;
+  margin-top: 10px;
+  font-size:1.9em;
+  position: absolute;
+  font-family:'Lucida Sans' sans-serif;
+  font-weight:bold;
 }
+ 
 
-
-.animate-charcter {
-  text-transform: uppercase;
-
-  background-image: linear-gradient(-225deg,
-      #eed80e 10%,
-      #f1f7f0 29%,
-      #e1e9eb 67%,
-      #fcfbfa 100%);
+.animate-charcter
+{
+   text-transform: uppercase;
+   
+  background-image: linear-gradient(
+    -225deg,
+     #b8a711 10%,
+     #44ccc1 29%, 
+    #5a57e7 67%,
+    #fcfbfa 100%
+  );
   background-size: auto auto;
   background-clip: border-box;
   background-size: 200% auto;
@@ -118,10 +114,10 @@ nav li a:hover {
   -webkit-text-fill-color: transparent;
   animation: textclip 8s linear infinite;
   display: inline-block;
-  font-size: 190px;
-  left: 70px;
-  margin-top: 10px;
-
+      font-size: 190px;
+      left:70px;
+    margin-top: 10px;
+      
 }
 
 @keyframes textclip {
@@ -130,34 +126,33 @@ nav li a:hover {
   }
 }
 
-
-.home {
+.home{
   box-sizing: border-box;
   font-family: monospace, serif, sans-serif;
   margin-top: 5px;
   box-sizing: inherit;
-  height: 760px;
-}
-
-
-
-
-
-
-
+ 
+  height: 100vh; 
+} 
 .aboutus {
   box-sizing: border-box;
   font-family: monospace, serif, sans-serif;
-  margin-top: 5px;
+  margin-bottom: 1px;
   box-sizing: inherit;
-  height: 620px;
-}
+  margin-top: 10px;
+   
+} 
+ 
+ 
 
 
-.aboutus .container h1 {
+
+.aboutus .text-center {
   font-size: 50px;
-  padding-top: 100px;
+  padding-bottom: 30px;
+  padding-top: 110px;
   text-align: center;
+margin-bottom: 80px;
 
 
 
@@ -165,13 +160,7 @@ nav li a:hover {
 
 }
 
-/*.aboutus .container p{
-    font-size: 20px;
-    margin-top: 40px;
-    text-align:justify;
-   margin-left: 160px;
-   padding-bottom: 50px;
-}*/
+
 .aboutus .container1 {
   margin: 60px auto;
   width: 80%;
@@ -180,8 +169,10 @@ nav li a:hover {
 
 .aboutus .container1 img {
   float: left;
-  width: 500px;
-  height: 400px;
+  width:450px;
+  height: 300px;
+  
+ 
   padding: 0 10px 0 0;
   padding-top: 10px;
   margin-left: 10px;
@@ -196,8 +187,10 @@ nav li a:hover {
 .services {
   background-color: white;
   padding: 50px 100px;
-  height: 680px;
-  margin-bottom: 10px;
+  padding-top:30px ;
+  padding-bottom: 40px;
+  
+ 
 
 }
 
@@ -223,8 +216,8 @@ nav li a:hover {
   color: black;
   background-color: white;
   justify-content: space-around;
-  margin-left: 50px;
-  margin-right: 50px;
+  margin-left: 20px;
+  margin-right: 20px;
   flex-wrap: wrap;
 
 }
@@ -257,7 +250,6 @@ nav li a:hover {
   padding: 10px;
   font-size: 20px
 }
-
 .contactus {
 
   background-color: white;
@@ -298,9 +290,9 @@ nav li a:hover {
 .contactus2 h4{
   text-align: justify;
   font-family: 'Raleway', sans-serif;
- font-size:16px;
-  /*text-align: justify;
-  white-space:normal;*/
+ font-size:0.5px;
+  text-align: justify;
+  white-space:normal;
 
 }
 
@@ -354,84 +346,17 @@ nav li a:hover {
   background-color: rgb(64, 212, 200);
 }
 
-.chatwithus {
-  background-color : #660461;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  position: fixed;
-  border-radius: 4px;
-  border-color: #46b8da;
-  bottom: 69px;
-  right: 28px;
-  width: 180px;
-}
 
-.mybutton {
-  position: fixed;
-  bottom: 8px;
-  right: 100px;
-}
 
-.modal {
-  background-color : #72066d;
-  padding: 10px 20px;
-  position: fixed;
-  border-radius: 2px;
-  bottom: 65px;
-  height:380px;
-  margin-right: 30px;
-  padding-top: 50px;
-  top: unset;
-  left: 1260px;
-  width: 260px;
-}
 
-.dialog-title {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height:30px;
-}
-
-.btn1{
-  background-color: #32c971;
-  margin-top: 170px;
-  font-size: 20px;
   
+    footer {
+      padding: 30px;
+      color:white;
+      color:gold;
+      text-align: center;
+    }
+
+.container{
+  margin-left: 40px;
 }
-
-
-
-
-
-
-.footer {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  padding-top: 20px;
-  padding-bottom: 10px;
-  display: flex;
-
-  right: 0;
-
-
-  padding: 1rem;
-
-  background: #4e0258;
-  text-align: center;
-}
-
-.footer .text {
-  font-size: 20px;
-  margin-left: 550px;
-  color: #fff;
-}
-
-
-
-
-
-
-
