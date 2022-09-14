@@ -7,7 +7,7 @@
     <p-table #dt1 [value]="vendorrequestdata" dataKey="id" [paginator]="true" [rows]="10"
         [showCurrentPageReport]="true" styleClass="p-datatable-customers p-datatable-gridlines"
         currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
-        [rowsPerPageOptions]="[10,15,20,100]" [filterDelay]="0" [globalFilterFields]="['id']">
+        [rowsPerPageOptions]="[10,15,20,100]" [filterDelay]="0" [globalFilterFields]="['id',]">
 
 
 
@@ -32,7 +32,7 @@
                 </th>
                 <th pSortableColumn="ownerName">NAME<p-sortIcon field="ownerName"></p-sortIcon>
                 </th>
-                <th pSortableColumn="garageName">Garage Name<p-sortIcon field="garageName"></p-sortIcon>
+                <th pSortableColumn="garageName">GARAGE NAME<p-sortIcon field="garageName"></p-sortIcon>
                 </th>
                 <th>ACTION </th>
             </tr>
@@ -44,7 +44,7 @@
                 <td>{{vendorrequest.id}}</td>
                 <td>{{vendorrequest.phoneNumber}}</td>
                 <td>{{vendorrequest.ownerName}}</td>
-                <td>{{vendorrequest.garageName}}</td>
+                <td>{{vendorrequest.garrageName}}</td>
                 <td>
                     <a [routerLink]="['/viewvendorrequest/', vendorrequest.id]">
                         <span class="material-icons mm-edit"> visibility </span></a>
@@ -54,8 +54,7 @@
                         <span class="material-icons mm-edit">edit </span></a>
 
                     <a href="#" *ngIf="loggedInUserRole=== 'ADMIN'"
-                        [routerLink]="['/assignvendorrequest/', vendorrequest.id]"
-                        class="btn btn-info">Assign</a>
+                        [routerLink]="['/assignvendorrequest/', vendorrequest.id]">Assign</a>
 
                     
 

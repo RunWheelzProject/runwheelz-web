@@ -2,12 +2,13 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { OrdersmanagementRoutingModule } from './ordersmanagement-routing.module';
-import { OrdersmanagementComponent } from './ordersmanagement/ordersmanagement.component';
+import { ViewOrderComponent } from './view-order/view-order.component';
 
 
 @NgModule({
   declarations: [
-    OrdersmanagementComponent
+  
+       ViewOrderComponent
   ],
   imports: [
     CommonModule,

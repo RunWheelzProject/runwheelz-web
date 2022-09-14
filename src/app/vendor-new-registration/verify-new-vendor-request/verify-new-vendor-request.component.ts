@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { Vendor } from 'src/app/shared/models/vendor';
 import { Vendorrequest } from 'src/app/shared/models/vendorrequest';
 import { RegistrationService } from 'src/app/shared/services/registration.service';
 
@@ -19,7 +18,7 @@ export class VerifyNewVendorRequestComponent implements OnInit {
   VendorRegisterRequestDTO!: Vendorrequest;
   subscription: Subscription = new Subscription;
   errorMessage: string = "";
-
+  message: string = "";
 
   constructor(private registrationService: RegistrationService, private router: Router) { }
 
@@ -73,6 +72,17 @@ export class VerifyNewVendorRequestComponent implements OnInit {
         console.log(this.errorMessage);
       });
   }
+  resend() {
+    let data = JSON.parse(localStorage.getItem('vendorrequest_send_otp_response') || '{}');
+    console.log(data)
+    console.log(data.phoneNumber)
 
+    this.subscription = this.registrationService.sendOTP('/api/auth/register/vendor/sendOtp/', `?phoneNumber=${data.phoneNumber}`).subscribe((data: any) => {
+      this.message = data;
+      console.log(this.message);
+      localStorage.setItem('vendorrequest_send_otp_response', JSON.stringify(data));
+    }
+    );
+  }
 
 }

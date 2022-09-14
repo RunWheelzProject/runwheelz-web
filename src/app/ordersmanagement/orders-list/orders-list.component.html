@@ -1,0 +1,54 @@
+<div class="container">
+
+    <div style="text-align: center;color: rgb(122, 92, 14);">
+        <h1>RUN WHEELZ ORDERS</h1>
+    </div>
+    <p-table #dt1 [value]="ordersdata" dataKey="id" [paginator]="true" [rows]="10" [showCurrentPageReport]="true"
+        styleClass="p-datatable-customers p-datatable-gridlines"
+        currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+        [rowsPerPageOptions]="[10,15,20,100]" [filterDelay]="0"
+        [globalFilterFields]="['orderId','serviceType','make','vehicleNumber','acceptedByVendor','assignedToMechanic']">
+
+        <ng-template pTemplate="caption">
+            <div class="search">
+                <input class="search" pInputText type="text" pInputText size="20"
+                    (input)="dt1.filterGlobal($any($event.target).value, 'contains')"
+                    placeholder="Global Filter"><br><br>
+            </div>
+        </ng-template>
+
+
+
+        <ng-template pTemplate="header">
+            <tr>
+                <th pSortableColumn="serviceType">ServiceType<p-sortIcon field="serviceType"></p-sortIcon>
+                </th>
+                <th pSortableColumn="make">Make<p-sortIcon field="make"></p-sortIcon>
+                </th>
+                <th pSortableColumn="vehicleNumber">Veicle Number<p-sortIcon field="vehicleNumber"></p-sortIcon>
+                </th>
+                <th pSortableColumn="acceptedByVendor">AcceptedByVendor<p-sortIcon field="acceptedByVendor"></p-sortIcon>
+                </th>
+                <th pSortableColumn="assignedToMechanic">AssignedToMechanic<p-sortIcon field="assignedToMechanic"></p-sortIcon>
+                </th>
+                <th>ACTION </th>
+            </tr>
+        </ng-template>
+
+
+        <ng-template pTemplate="body" let-order>
+            <tr>
+                <td>{{order.serviceType}}</td>
+                <td>{{order.make}}</td>
+                <td>{{order.vehicleNumber}}</td>
+                <td>{{order.acceptedByVendor}}</td>
+                <td>{{order.assignedToMechanic}}</td>
+                <td>
+                    <a [routerLink]="['/viewOrder/', order.id]">
+                        <span class="material-icons mm-eye"> visibility </span></a>
+                </td>
+            </tr>
+        </ng-template>
+
+    </p-table>
+</div>

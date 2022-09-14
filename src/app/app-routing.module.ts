@@ -6,7 +6,6 @@ import { LayoutComponent } from './shared/components/layout/layout.component';
 import { SidebarComponent } from './shared/components/sidebar/sidebar.component';
 import { StaffLoginComponent } from './staff-login/staff-login.component';
 import { MainscreenComponent } from './mainscreen/component/mainscreen/mainscreen.component';
-import { VendorMechanicManagementModule } from './vendor-mechanic-management/vendor-mechanic-management.module';
 
 //import { StaffmanagementComponent } from './staffmanagement/staffmanagement/staffmanagement.component';
 const routes: Routes = [
@@ -105,18 +104,7 @@ const routes: Routes = [
 
     ]
   },
-  {
-    path: 'executive',
-    component: LayoutComponent,
-    children: [
-      
-      {
-        path: 'executive',
-        loadChildren: () => import('./executive/executive.module').then(executive => executive.ExecutiveModule),
-      }
-
-    ]
-  },
+ 
   {
     path: 'customermanagement',
     component: LayoutComponent,

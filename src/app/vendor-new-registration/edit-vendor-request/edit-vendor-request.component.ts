@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Vendorrequest } from 'src/app/shared/models/vendorrequest';
 import { VendorNewRegistrationService } from '../vendor-new-registration.service';
@@ -10,41 +10,97 @@ import { VendorNewRegistrationService } from '../vendor-new-registration.service
   styleUrls: ['./edit-vendor-request.component.scss']
 })
 export class EditVendorRequestComponent implements OnInit {
-
+  submitted=false;
   id: any;
   vendorrequestdata!: Vendorrequest;
-  form!: FormGroup;
-  latitude!:number;
-  longitude!:number;
+  vendorrequestForm: any;
+  latitude!: number;
+  longitude!: number;
 
-  constructor(private vendorNewRegistrationService: VendorNewRegistrationService, public route: ActivatedRoute, public router: Router) { }
+  vendorRequestDetailsForm = this.formBuilder.group({
+    id: [{ value: null, disabled: false }],
+    phoneNumber: [{ value: null, disabled: false }],
+    ownerName: [null, [Validators.required]],
+    garrageName: [null, [Validators.required]],
+    latitude: [Validators.required],
+    longitude: [Validators.required]
 
-  
+  });;
+
+  constructor(private formBuilder: FormBuilder, private VendorNewRegistrationService: VendorNewRegistrationService, public route: ActivatedRoute, public router: Router) { }
+
+  getLocation() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition((position) => {
+        if (position) {
+          console.log("Latitude: " + position.coords.latitude +
+            "Longitude: " + position.coords.longitude);
+          this.latitude = position.coords.latitude;
+          this.longitude = position.coords.longitude;
+          console.log(this.latitude, this.longitude);
+        }
+      })
+    }
+  }
+
   ngOnInit(): void {
 
-    this.id = this.route.snapshot.params['id']
-    this.vendorNewRegistrationService.getVendorRequestById(this.id).subscribe((data: Vendorrequest) => {
-      this.vendorrequestdata = data;
-      console.log(this.vendorrequestdata.id);
+    this.patchValue();
 
+  }
+
+  get f() {
+    return this.vendorRequestDetailsForm.controls;
+  }
+  patchValue() {
+    this.id = this.route.snapshot.params['id']
+    this.VendorNewRegistrationService.getVendorRequestById(this.id).subscribe((data: Vendorrequest) => {
+      this.vendorrequestdata = data;
     });
-    this.form = new FormGroup({
-      id: new FormControl('', [Validators.required]),
-      phoneNumber: new FormControl('', [Validators.required]),
-      ownerName: new FormControl('', [Validators.required]),
-      garageName: new FormControl('', [Validators.required]),
-      latitude: new FormControl('', [Validators.required]),
-      longitude: new FormControl('', [Validators.required])
+    this.vendorRequestDetailsForm.patchValue({
+      id: this.vendorrequestdata.id,
+      phoneNumber: this.vendorrequestdata.phoneNumber,
+      ownerName: this.vendorrequestdata.ownerName,
+      garrageName: this.vendorrequestdata.garrageName,
+      latitude: this.vendorrequestdata.latitude,
+      longitude: this.vendorrequestdata.longitude
     });
   }
 
+  onSubmitUpdateVendorRequest() {
+    this.submitted = true;
 
-  onSubmit() {
-    this.vendorNewRegistrationService.updateVendorRequestinfo(this.id, this.form.value).subscribe(data => {
-      this.vendorrequestdata = data;
-      this.router.navigate(['/vendor-new-registration/vendor-new-registration'])
-    })
+    // stop here if form is invalid
+    if (this.vendorRequestDetailsForm.invalid) {
+      return;
+    }
+    else {
+      this.vendorrequestForm = this.vendorRequestDetailsForm.value;
+      let id = this.vendorRequestDetailsForm.value.id;
+
+      let obj = {
+        id: this.vendorrequestForm.id,
+        phoneNumber: this.vendorrequestForm.phoneNumber,
+        ownerName: this.vendorrequestForm.ownerName,
+        garrageName: this.vendorrequestForm.garrageName,
+        latitude: this.vendorrequestForm.latitude,
+        longitude: this.vendorrequestForm.longitude,
+        // latitude: this.latitude,
+        // longitude: this.longitude,
+      }
+      console.log(obj);
+
+      this.VendorNewRegistrationService.updateVendorRequestinfo(id, obj).subscribe(data => {
+        this.vendorrequestdata = data;
+        this.router.navigate(['/vendor-new-registration/vendor-new-registration'])
+      })
+    }
   }
 
 
 }
+
+
+
+
+

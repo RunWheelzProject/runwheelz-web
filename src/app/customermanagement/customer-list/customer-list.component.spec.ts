@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ExecutiveListComponent } from './executive-list.component';
+import { CustomerListComponent } from './customer-list.component';
 
-describe('ExecutiveListComponent', () => {
-  let component: ExecutiveListComponent;
-  let fixture: ComponentFixture<ExecutiveListComponent>;
+describe('CustomerListComponent', () => {
+  let component: CustomerListComponent;
+  let fixture: ComponentFixture<CustomerListComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ExecutiveListComponent ]
+      declarations: [ CustomerListComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ExecutiveListComponent);
+    fixture = TestBed.createComponent(CustomerListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

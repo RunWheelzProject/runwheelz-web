@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { MessageService } from 'primeng/api';
 import { VendormanagementService } from '../vendormanagement.service';
 
 @Component({
@@ -11,7 +10,7 @@ import { VendormanagementService } from '../vendormanagement.service';
 })
 export class AddnewVendorComponent implements OnInit {
 
-
+  submitted = false;
   phoneNumber: any;
   data: any;
   errorMessage: any;
@@ -20,7 +19,6 @@ export class AddnewVendorComponent implements OnInit {
   longitude!: number;
   zoom!: number;
   address!: string;
-  private geoCoder:any;
   
 
 
@@ -28,21 +26,29 @@ export class AddnewVendorComponent implements OnInit {
     id: [{ value: null, disabled: false }],
     phoneNumber: [{ value: null, disabled: false }],
     vendorPin: [{ value: null, disabled: false }],
-    ownerName: [null, [Validators.required, Validators.minLength(1), Validators.maxLength(50),]],
-    garageName: [null, [Validators.required, Validators.minLength(1), Validators.maxLength(256),]],
-    aadharNumber: [ [Validators.required, Validators.minLength(1), Validators.maxLength(12),]],
-    addressLine: [null, [Validators.required, Validators.minLength(1), Validators.maxLength(256),]],
-    city: [null, [Validators.required, Validators.minLength(1), Validators.maxLength(256),]],
-    state: [null, [Validators.required, Validators.minLength(1), Validators.maxLength(12),]],
-    zipcode: [null, [Validators.required, Validators.minLength(6), Validators.maxLength(6),]],
-    latitude: [Validators.required],
-    longitude: [Validators.required]
+    ownerName: ['', Validators.required],
+    garrageName: ['', Validators.required],
+    aadharNumber: ['', [Validators.required, Validators.pattern("^[0-9]*$"), Validators.minLength(12), Validators.maxLength(12)]],
+    addressLine: ['', Validators.required],
+    city: ['', Validators.required],
+    state: ['', Validators.required],
+    zipcode: ['', [Validators.required, Validators.pattern("^[0-9]*$"), Validators.minLength(6), Validators.maxLength(6)]],
+    latitude: ['', Validators.required],
+    longitude: ['', Validators.required]
 
   });
 
   constructor(private router: Router, private vendormanagementService: VendormanagementService,
-    public route: ActivatedRoute, private formBuilder: FormBuilder, private messageService: MessageService) { }
+    public route: ActivatedRoute, private formBuilder: FormBuilder) { }
 
+    keyPress(event: any) {
+      const pattern = /[0-9\+\-\ ]/;
+      let inputChar = String.fromCharCode(event.charCode);
+      if (event.keyCode != 8 && !pattern.test(inputChar)) {
+        event.preventDefault();
+      }
+    }
+    
     getLocation() {
       if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition((position) => {
@@ -75,7 +81,7 @@ export class AddnewVendorComponent implements OnInit {
       phoneNumber: this.data.phoneNumber,
       vendorPin: this.data.vendorPin,
       ownerName: this.data.ownerName,
-      garageName: this.data.garageName,
+      garrageName: this.data.garrageName,
       aadharNumber: this.data.aadharNumber,
       addressLine: this.data.addressLine,
       city: this.data.city,
@@ -91,6 +97,13 @@ export class AddnewVendorComponent implements OnInit {
   }
 
   onSubmitUpdateVendor() {
+    this.submitted = true;
+
+    // stop here if form is invalid
+    if (this.vendorDetailsForm.invalid) {
+      return;
+    }
+    else {
     this.vendorForm = this.vendorDetailsForm.value;
     let id = this.vendorDetailsForm.value;
 
@@ -99,7 +112,7 @@ export class AddnewVendorComponent implements OnInit {
       phoneNumber: this.vendorForm.phoneNumber,
       vendorPin: this.vendorForm.vendorPin,
       ownerName: this.vendorForm.ownerName,
-      garageName: this.vendorForm.garageName,
+      garrageName: this.vendorForm.garrageName,
       aadharNumber: this.vendorForm.aadharNumber,
       addressLine: this.vendorForm.addressLine,
       city: this.vendorForm.city,
@@ -109,21 +122,16 @@ export class AddnewVendorComponent implements OnInit {
       longitude: this.longitude
     }
 
-    this.vendormanagementService.putVendorinfo(id, obj).subscribe((data: any) => {
-      if (this.vendorDetailsForm.invalid) {
-        for (const control of Object.keys(this.vendorDetailsForm.controls)) {
-          this.vendorDetailsForm.controls[control].markAsTouched();
-        }
-        return;
-      }
-      else {
+    this.vendormanagementService.updateVendorinfo(id, obj).subscribe((data: any) => {
+      
         this.router.navigate(['/vendormanagement/vendormanagement']);
-      }
+    
     },
       (error) => {
         this.errorMessage = error.error.message;
         console.log(this.errorMessage)
       });
+    }
   }
 
 }

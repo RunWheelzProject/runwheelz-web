@@ -5,7 +5,6 @@ import { AddnewStaffComponent } from './addnew-staff/addnew-staff.component';
 import { EditStaffComponent } from './edit-staff/edit-staff.component';
 import { StaffRegisterComponent } from './staff-register/staff-register.component';
 import { Stafflist } from './stafflist/stafflist.component';
-import { StaffmanagementModule } from './staffmanagement.module';
 import { VerifynewstaffComponent } from './verifynewstaff/verifynewstaff.component';
 import { ViewstaffComponent } from './viewstaff/viewstaff.component';
 

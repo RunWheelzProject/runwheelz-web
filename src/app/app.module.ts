@@ -25,9 +25,6 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 
-
-
-
 import { TableModule } from 'primeng/table';
 import { ButtonModule } from 'primeng/button';
 import { DialogModule } from 'primeng/dialog';
@@ -47,6 +44,10 @@ import { VendorMechanicListComponent } from './vendor-mechanic-management/vendor
 import { VendorMechanicManagementModule } from './vendor-mechanic-management/vendor-mechanic-management.module';
 import { VendorRequestListComponent } from './vendor-new-registration/vendor-request-list/vendor-request-list.component';
 import { VendorNewRegistrationModule } from './vendor-new-registration/vendor-new-registration.module';
+import { CustomermanagementModule } from './customermanagement/customermanagement.module';
+import { CustomerListComponent } from './customermanagement/customer-list/customer-list.component';
+import { OrdersListComponent } from './ordersmanagement/orders-list/orders-list.component';
+import { OrdersmanagementModule } from './ordersmanagement/ordersmanagement.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -55,7 +56,9 @@ import { VendorNewRegistrationModule } from './vendor-new-registration/vendor-ne
     Stafflist,
     VendorListComponent,
     VendorMechanicListComponent,
-    VendorRequestListComponent
+    VendorRequestListComponent,
+    CustomerListComponent,
+    OrdersListComponent
     
   ],
   imports: [
@@ -84,6 +87,8 @@ import { VendorNewRegistrationModule } from './vendor-new-registration/vendor-ne
     VendormanagementModule,
     VendorMechanicManagementModule,
     VendorNewRegistrationModule,
+    CustomermanagementModule,
+    OrdersmanagementModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyBphyueg6xoPG3upFK_6KUzmR_mvbCdcsA',
       libraries: ['places']

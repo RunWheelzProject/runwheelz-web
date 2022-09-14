@@ -17,10 +17,12 @@ export class VerifynewstaffComponent implements OnInit {
 
   otp!: string;
   phoneNumber: string = "";
-  verificationRef: string="";
+  verificationRef: string = "";
   staffDTO!: Staff;
   subscription: Subscription = new Subscription;
-  errorMessage:string="";
+  errorMessage: string = "";
+
+  message: string = "";
 
 
   constructor(private registrationService: RegistrationService, private router: Router) { }
@@ -50,11 +52,11 @@ export class VerifynewstaffComponent implements OnInit {
     this.verificationRef = data.verificationRef;
 
     console.log(data.phoneNumber);
-    
+
     let obj = {
       phoneNumber: this.phoneNumber,
       otp: this.otp,
-      verificationRef:this.verificationRef
+      verificationRef: this.verificationRef
     }
 
     this.subscription = this.registrationService.verifyStaffOTP(obj).subscribe((data: any) => {
@@ -70,12 +72,21 @@ export class VerifynewstaffComponent implements OnInit {
         });
     },
       (error) => {
-        
-        this.errorMessage=error.error.message;
+
+        this.errorMessage = error.error.message;
         console.log(this.errorMessage);
       });
   }
-  // resend(){
-    
-  // }
+  resend() {
+    let data = JSON.parse(localStorage.getItem('staff_send_otp_response') || '{}');
+    console.log(data)
+    console.log(data.phoneNumber)
+
+    this.subscription = this.registrationService.sendOTP('/api/auth/register/runwheelz/staff/sendOtp/', `?phoneNumber=${data.phoneNumber}`).subscribe((data: any) => {
+      this.message = data;
+      console.log(this.message);
+      localStorage.setItem('staff_send_otp_response', JSON.stringify(data));
+    }
+    );
+  }
 }

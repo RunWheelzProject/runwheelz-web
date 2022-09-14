@@ -2,12 +2,15 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { CustomermanagementRoutingModule } from './customermanagement-routing.module';
-import { CustomermanagementComponent } from './customermanagement/customermanagement.component';
+import { CustomerListComponent } from './customer-list/customer-list.component';
+import { ViewCustomerComponent } from './view-customer/view-customer.component';
 
 
 @NgModule({
   declarations: [
-    CustomermanagementComponent
+    
+  
+    ViewCustomerComponent
   ],
   imports: [
     CommonModule,

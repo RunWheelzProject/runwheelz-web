@@ -17,7 +17,8 @@ export class SidebarComponent implements OnInit {
 
   ngOnInit(): void {
     const userInfo = JSON.parse(sessionStorage.getItem('staff_info')|| '{}');
-    const role = userInfo.role.roleName;
+    console.log(userInfo.runwheelzStaffDTO.role.roleName);
+    const role = userInfo.runwheelzStaffDTO.role.roleName;
     this.menuItems = ROUTES.filter((menuItem) => menuItem.roles.includes(role));
     this.activatedRoute.queryParams.subscribe((params) => {
       this.staffId = params;
@@ -34,17 +35,17 @@ export class SidebarComponent implements OnInit {
   }
   
   submenulistToggle(i:number,menuItem:string): void {
-    let el = $('ul.child-menu-' + i);
+    // let el = $('ul.child-menu-' + i);
 
-    if (el.hasClass('d-none')) {
-      el.removeClass('d-none');
-    } else {
-      el.addClass('d-none');
-    }
+    // if (el.hasClass('d-none')) {
+    //   el.removeClass('d-none');
+    // } else {
+    //   el.addClass('d-none');
+    // }
 
-    if(menuItem != '/staffmanagement/staffmanagement'){
-      this.router.navigateByUrl(menuItem)
-      }
+    // if(menuItem != '/staffmanagement/staffmanagement'){
+    //   this.router.navigateByUrl(menuItem)
+    //   }
     
 
   }

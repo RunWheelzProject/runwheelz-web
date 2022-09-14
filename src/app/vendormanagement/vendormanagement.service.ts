@@ -17,7 +17,7 @@ export class VendormanagementService {
     return this.http.get(this.baseURL + '/api/vendor/getallvendors');
   }
 
-  public putVendorinfo(id: number, body: any): Observable<any>{
+  public updateVendorinfo(id: number, body: any): Observable<any>{
     return this.http.put(this.baseURL + '/api/vendor/editvendor',body);
   }
 

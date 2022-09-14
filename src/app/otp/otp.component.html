@@ -1,12 +1,23 @@
 <div class="container">
-  
+  <div class="text-center">
     <div class="otp">
-      <ng-otp-input #ngOtpInput (onInputChange)="onOtpChange($event)" [config]="config"></ng-otp-input>
-      <button class="btn btn-success mt-4" (click)="handleClick()">Verify OTP</button>
-
+      <form class="justify-start">
+        <div class="items-center w-full mb-16 lg:inline-flex lg:w-62">
+          <ng-otp-input (onInputChange)="onOtpChange($event)" [config]="config" class="inline w-full lg:w-full"></ng-otp-input>
+        </div>
+        <br>
+        <br>
+        <p class="justify-center inline text-gray-500">Didn't receive a code?<a (click)="resend()"
+            class="ml-2 text-yellow-500 cursor-pointer">Resend</a></p>
+  
+        <div>
+          <button class="btn btn-success mt-4" (click)="handleClick()" [disabled]="!otp">Verify OTP</button>
+        </div>
+      </form>
       <div class="alert alert-danger" *ngIf="errorMessage">
         {{errorMessage}}
       </div>
     </div>
-  
+  </div>
 </div>
+
