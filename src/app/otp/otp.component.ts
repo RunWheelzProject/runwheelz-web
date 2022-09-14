@@ -56,7 +56,7 @@ export class OtpComponent implements OnInit {
     this.subscription = this.loginService.verifyOTP(obj).subscribe((data: any) => {
       sessionStorage.setItem('staff_info', JSON.stringify(data));
       localStorage.setItem('staff_info', JSON.stringify(data));
-      this.router.navigate(['/']);
+      this.router.navigate(['/dashboard']);
     },
       (error) => {
         this.errorMessage = error.error.message;
