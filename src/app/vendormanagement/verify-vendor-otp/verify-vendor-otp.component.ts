@@ -18,6 +18,7 @@ export class VerifyVendorOtpComponent implements OnInit {
   vendorDTO!: Vendor;
   subscription: Subscription = new Subscription;
   errorMessage:string="";
+  message: string = "";
 
 
   constructor(private registrationService: RegistrationService, private router: Router) { }
@@ -72,7 +73,18 @@ export class VerifyVendorOtpComponent implements OnInit {
         console.log(this.errorMessage);
       });
   }
-  
+  resend() {
+    let data = JSON.parse(localStorage.getItem('vendor_send_otp_response') || '{}');
+    console.log(data)
+    console.log(data.phoneNumber)
+
+    this.subscription = this.registrationService.sendOTP('/api/auth/register/vendor/sendOtp/', `?phoneNumber=${data.phoneNumber}`).subscribe((data: any) => {
+      this.message = data;
+      console.log(this.message);
+      localStorage.setItem('vendor_send_otp_response', JSON.stringify(data));
+    }
+    );
+  }
 }
 
 

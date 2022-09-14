@@ -27,7 +27,7 @@ export class StaffRegisterComponent implements OnInit {
     }
   }
   ngOnInit() {
-    
+
     this.staffRegister = this.formBuilder.group({
       phonenumber: ['', [Validators.required, Validators.pattern("^[0-9]*$"), Validators.minLength(10), Validators.maxLength(10)]]
     });
@@ -55,12 +55,8 @@ export class StaffRegisterComponent implements OnInit {
         (error: any) =>
           this.errorMessage = error.error.message;
         console.log(this.errorMessage);
-      }
-      );
+      });
     }
-
   }
-
-
 
 }

@@ -10,7 +10,7 @@ const routes: Routes = [
   },
   
   {
-    path: 'ViewVendorMechanic/:id',
+    path: 'viewVendorMechanic/:id',
     component:LayoutComponent,
     children:[
       {
@@ -18,16 +18,7 @@ const routes: Routes = [
       }
     ]
   },
-//   {
-//     path: 'editvendormechanic/:id',
-//     component:LayoutComponent,
-//     children:[
-//       {
-//         path:'', component:EditVendorComponent
-//       }
-//     ]
-//   },
-  
+
 ];
 
 @NgModule({

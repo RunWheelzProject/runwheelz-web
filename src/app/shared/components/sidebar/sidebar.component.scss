@@ -53,71 +53,7 @@
                 }
             }
         }
-        /* submenu dropdown */
-        .mm-subMenu {
-            position: relative;
-            top: -30px;
-            label {
-               
-                font-style: normal;
-                font-weight: normal;
-                font-size: 16px;
-                color:rgb(226, 186, 135);
-                padding: 10px 0px 25px 35px;
-            }
-            .mm-listSubGroupItem {
-                border: none;
-                outline: none;
-                .mm-text {
-                   
-                    font-style: normal;
-                    font-weight: normal;
-                    font-size: 16px;
-                    line-height: 24px;
-                    color:green;
-                    padding-left: 38px;
-                }
-                &.active {
-                    border-left: 2px solid green;
-                    background-color:green;
-                    .mm-text {
-                        
-                        font-style: normal;
-                        font-weight: 500;
-                        font-size: 16px;
-                        line-height: 24px;
-                        color: #666666;
-                    }
-                }
-            }
-        }
-        .child-menu-1,
-            .child-menu-6 {
-                .mm-listGroupItem:not(.active) {
-                    .mm-listMuted {
-                        .mm-text {
-                            font: 100;
-                        }
-                    }
-                }
-            }
-        }
         
     }
-
-.mm-arrowdown {
-    position: absolute;
-    left: 200px;
-    top: 2px;
-    color: #666666;
 }
 
-a.nav-link.open span.mm-arrowdown {
-    transform: rotate( 180deg);
-}
-
-@media (max-width: 576px) {
-    .p-component-overlay {
-        z-index: -1 !important;
-    }
-}

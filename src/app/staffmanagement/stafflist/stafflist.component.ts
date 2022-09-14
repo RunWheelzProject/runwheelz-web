@@ -24,7 +24,8 @@ export class Stafflist implements OnInit {
 
   ngOnInit(): void {
     const loggedInUser = JSON.parse(sessionStorage.getItem('staff_info') || '{}');
-    this.loggedInUserRole = loggedInUser.roleName;
+    console.log(loggedInUser);
+    this.loggedInUserRole = loggedInUser.runwheelzStaffDTO.role.roleName;
     this.staffmanagementService.getAllStaff().subscribe(data => {
       this.staffdata = data;
     });

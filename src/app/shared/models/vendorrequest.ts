@@ -3,7 +3,7 @@ export interface Vendorrequest {
     phoneNumber: string;
     //referenceID:string;
     ownerName: string;
-    garageName: string;
+    garrageName: string;
     latitude:any;
     longitude:any;
 }

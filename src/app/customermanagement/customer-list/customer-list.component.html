@@ -1,21 +1,12 @@
-<!-- <div class="card">
+<div class="container">
 
-
-    <div style="text-align: center;color: rgb(122, 92, 14);">
-        <h1>RUN WHEELZ EXECUTIVE</h1>
-    </div>
-
-
-    <p-table #dt1 [value]="executive" dataKey="id" [paginator]="true" [rows]="10" [showCurrentPageReport]="true"
+    <p-table #dt1 [value]="customerdata" dataKey="id" [paginator]="true" [rows]="10" [showCurrentPageReport]="true"
         styleClass="p-datatable-customers p-datatable-gridlines"
         currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
         [rowsPerPageOptions]="[10,15,20,100]" [filterDelay]="0"
-        [globalFilterFields]="['id','name','phoneNumber','aadharNumber','addressLine']">
-
-        
+        [globalFilterFields]="['id','name','phoneNumber','email']">
 
         <ng-template pTemplate="caption">
-            
             <div class="search">
                 <input class="search" pInputText type="text" pInputText size="20"
                     (input)="dt1.filterGlobal($any($event.target).value, 'contains')"
@@ -31,28 +22,24 @@
                 </th>
                 <th pSortableColumn="name">NAME<p-sortIcon field="name"></p-sortIcon>
                 </th>
-                <th pSortableColumn="aadharNumber">AADHAR NUMBER<p-sortIcon field="aadharNumber"></p-sortIcon>
-                </th>
                 <th pSortableColumn="phoneNumber">PHONE NUMBER<p-sortIcon field="phoneNumber"></p-sortIcon>
-                </th>
-                <th pSortableColumn="addressLine">ADDRESS<p-sortIcon field="addressLine"></p-sortIcon>
                 </th>
                 <th>ACTION </th>
             </tr>
         </ng-template>
 
 
-        <ng-template pTemplate="body" let-executive>
+        <ng-template pTemplate="body" let-customer>
             <tr>
-                <td>{{executive.id}}</td>
-                <td>{{executive.name}}</td>
-                <td>{{executive.aadharNumber}}</td>
-                <td>{{executive.phoneNumber}}</td>
-                <td>{{executive.addressLine}}</td>
+                <td>{{customer.id}}</td>
+                <td>{{customer.name}}</td>
+                <td>{{customer.phoneNumber}}</td>
                 <td>
-                    <a href="#" *ngIf="loggedInUserRole=== 'ADMIN''EXECUTIVE'" [routerLink]="['/addnewvendor/', addnewvendor.id, 'addnewvendor']" class="btn btn-info">AddNewVendor</a>
+                    <a [routerLink]="['/viewcustomer/', customer.id]">
+                        <span class="material-icons mm-eye"> visibility </span></a>
                 </td>
             </tr>
         </ng-template>
+
     </p-table>
-</div> -->
+</div>

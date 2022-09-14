@@ -43,7 +43,7 @@ export class StaffLoginComponent implements OnInit {
       //return this.httpclient.get(this.baseURL +'/api/staff/login/sendOtp/91'+`${phonenumber}`);
       let phonenumber = '91' + this.staffLoginForm.value.phonenumber;
 
-      this.subscription = this.loginService.sendOTP('/api/staff/login/sendOtp/', `?phoneNumber=${phonenumber}`).subscribe((data: any) => {
+      this.subscription = this.loginService.sendOTP('/api/auth/login/web/sendotp/', `?phoneNumber=${phonenumber}`).subscribe((data: any) => {
         this.message = data;
         console.log(data.phoneNumber);
 

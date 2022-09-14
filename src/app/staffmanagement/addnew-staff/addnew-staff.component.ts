@@ -3,7 +3,6 @@ import { Component, OnInit } from '@angular/core';
 
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { MessageService } from 'primeng/api';
 import { Staff } from 'src/app/shared/models/staff';
 import { StaffmanagementService } from '../staffmanagement.service';
 
@@ -14,78 +13,82 @@ import { StaffmanagementService } from '../staffmanagement.service';
 })
 export class AddnewStaffComponent implements OnInit {
 
-
+  submitted = false;
   staffDTO!: Staff;
-  phoneNumber: any;
   data: any;
   errorMessage: any;
   staffForm: any;
-  staffdata: any;
   rolesList: any;
-  editable!: boolean;
-  latitude!:number;
-  longitude!:number;
+  latitude!: number;
+  longitude!: number;
 
   staffDetailsForm = this.formBuilder.group({
-    id: [{ value: '' }],
-    phoneNumber: [{ value: '', }],
-    name: [null, [Validators.required, Validators.minLength(1), Validators.maxLength(50),]],
-    role: [null, [Validators.required]],
-    aadharNumber: [null, [Validators.required, Validators.minLength(1), Validators.maxLength(12),]],
-    addressLine: [null, [Validators.required, Validators.minLength(1), Validators.maxLength(256),]],
-    city: [null, [Validators.required, Validators.minLength(1), Validators.maxLength(256),]],
-    state: [null, [Validators.required, Validators.minLength(1), Validators.maxLength(256),]],
-    zipcode: [null, [Validators.required, Validators.minLength(1), Validators.maxLength(6),]],
-    latitude: [null, Validators.required],
-    longitude: [null, Validators.required]
+    id: [{ value: '', disabled: false }],
+    phoneNumber: [{ value: '', disabled: false }],
+    name: ['', Validators.required],
+    role: ['', Validators.required],
+    aadharNumber: ['', [Validators.required, Validators.pattern("^[0-9]*$"), Validators.minLength(12), Validators.maxLength(12)]],
+    addressLine: ['', Validators.required],
+    city: ['', Validators.required],
+    state: ['', Validators.required],
+    zipcode: ['', [Validators.required, Validators.pattern("^[0-9]*$"), Validators.minLength(6), Validators.maxLength(6)]],
+    latitude: ['', Validators.required],
+    longitude: ['', Validators.required]
 
   });
 
   constructor(private router: Router, private staffmanagementService: StaffmanagementService,
-    public route: ActivatedRoute, private formBuilder: FormBuilder, private messageService: MessageService, private mapsAPILoader: MapsAPILoader) { }
-    
-    get f() {
-      return this.staffDetailsForm.controls;
-    }
+    public route: ActivatedRoute, private formBuilder: FormBuilder,  private mapsAPILoader: MapsAPILoader) { }
 
-    getLocation() {
-      if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition((position) => {
-          if (position) {
-            console.log("Latitude: " + position.coords.latitude +
-              "Longitude: " + position.coords.longitude);
-            this.latitude = position.coords.latitude;
-            this.longitude = position.coords.longitude;
-            console.log(this.latitude);
-            console.log(this.longitude);
-          }
-        })
-      }
+  keyPress(event: any) {
+    const pattern = /[0-9\+\-\ ]/;
+    let inputChar = String.fromCharCode(event.charCode);
+    if (event.keyCode != 8 && !pattern.test(inputChar)) {
+      event.preventDefault();
     }
+  }
 
+
+  getLocation() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition((position) => {
+        if (position) {
+          console.log("Latitude: " + position.coords.latitude +
+            "Longitude: " + position.coords.longitude);
+          this.latitude = position.coords.latitude;
+          this.longitude = position.coords.longitude;
+          console.log(this.latitude);
+          console.log(this.longitude);
+        }
+      })
+    }
+  }
   ngOnInit() {
+    
+
     this.patchValue();
     this.getStaffRoles();
 
-    this.mapsAPILoader.load().then(() => {
-    });
+    // this.mapsAPILoader.load().then(() => {
+    // });
   }
-  
+
   getStaffRoles() {
     this.staffmanagementService.getStaffRoles().subscribe((data: any) => {
       this.rolesList = data;
-      console.log(this.rolesList);
       (error: any) =>
         this.errorMessage = error;
     });
   }
 
-  patchValue(){
+   // convenience getter for easy access to form fields
+   get f() { return this.staffDetailsForm.controls; }
+
+  patchValue() {
     this.route.queryParams.subscribe((params) => {
-      console.log(params)
       this.data = JSON.parse(atob(params['data']));
       console.log(this.data);
-    
+
       this.staffDetailsForm.patchValue({
         id: this.data.id,
         phoneNumber: this.data.phoneNumber,
@@ -102,43 +105,45 @@ export class AddnewStaffComponent implements OnInit {
     });
   }
 
-  
-  onSubmitUpdateStaff() {
+  updateStaffInfo() {
 
-    this.staffForm = this.staffDetailsForm.value;
-    let id = this.staffDetailsForm.value.id;
+    this.submitted = true;
 
-    let obj = {
-      id: this.staffForm.id,
-      phoneNumber: this.staffForm.phoneNumber,
-      name: this.staffForm.name,
-      role: this.staffForm.role,
-      aadharNumber: this.staffForm.aadharNumber,
-      addressLine: this.staffForm.addressLine,
-      city: this.staffForm.city,
-      state: this.staffForm.state,
-      zipcode: this.staffForm.zipcode,
-      latitude: this.latitude,
-      longitude: this.longitude,
+    // stop here if form is invalid
+    if (this.staffDetailsForm.invalid) {
+      return;
     }
-    console.log(obj);
+    else {
+      this.staffForm = this.staffDetailsForm.value;
+      let id = this.staffDetailsForm.value.id;
 
-    this.staffmanagementService.updateStaffinfo(id, obj).subscribe(
-      (data: any) => {
-        if (this.staffDetailsForm.invalid) {
-          for (const control of Object.keys(this.staffDetailsForm.controls)) {
-            this.staffDetailsForm.controls[control].markAsTouched();
-          }
-          return;
-        }
-        else {
-          this.router.navigate(['/staffmanagement/staffmanagement']);
-        }
-      },
-      (error) => {
-        this.errorMessage = error.error.message;
-        console.log(this.errorMessage)
-      });
+      let obj = {
+        id: this.staffForm.id,
+        phoneNumber: this.staffForm.phoneNumber,
+        name: this.staffForm.name,
+        role: this.staffForm.role,
+        
+        aadharNumber: this.staffForm.aadharNumber,
+        addressLine: this.staffForm.addressLine,
+        city: this.staffForm.city,
+        state: this.staffForm.state,
+        zipcode: this.staffForm.zipcode,
+        latitude: this.latitude,
+        longitude: this.longitude,
+      }
+      console.log(obj);
+      this.staffmanagementService.updateStaffinfo(id, obj).subscribe(
+        (data: any) => {
+          console.log(data)
+            this.router.navigate(['/staffmanagement/staffmanagement']);
+        },
+        (error) => {
+          this.errorMessage = error.error.message;
+          console.log(this.errorMessage)
+        });
+      }
+   
   }
+
 }
 

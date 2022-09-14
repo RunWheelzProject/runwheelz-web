@@ -17,6 +17,7 @@ export class OtpComponent implements OnInit {
   subscription: Subscription = new Subscription;
 
   errorMessage: string="";
+  message: string = "";
 
 
   constructor(private loginService: LoginService, private router: Router) { }
@@ -55,7 +56,7 @@ export class OtpComponent implements OnInit {
     this.subscription = this.loginService.verifyOTP(obj).subscribe((data: any) => {
       sessionStorage.setItem('staff_info', JSON.stringify(data));
       localStorage.setItem('staff_info', JSON.stringify(data));
-      this.router.navigate(['/dashboard']);
+      this.router.navigate(['/']);
     },
       (error) => {
         this.errorMessage = error.error.message;
@@ -64,5 +65,16 @@ export class OtpComponent implements OnInit {
       }
     );
   }
+  resend() {
+    let data = JSON.parse(localStorage.getItem('staff_info') || '{}');
+    console.log(data)
+    console.log(data.phoneNumber)
 
+    this.subscription = this.loginService.sendOTP('/api/auth/login/web/sendotp/', `?phoneNumber=${data.phoneNumber}`).subscribe((data: any) => {
+      this.message = data;
+      console.log(this.message);
+      localStorage.setItem('staff_info', JSON.stringify(data));
+    }
+    );
+  }
 }

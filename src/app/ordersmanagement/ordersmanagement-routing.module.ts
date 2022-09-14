@@ -1,12 +1,23 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { OrdersmanagementComponent } from './ordersmanagement/ordersmanagement.component';
+import { LayoutComponent } from '../shared/components/layout/layout.component';
+import { OrdersListComponent } from './orders-list/orders-list.component';
+import { ViewOrderComponent } from './view-order/view-order.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: OrdersmanagementComponent
-  }
+    component: OrdersListComponent
+  },
+  {
+    path: 'viewOrder/:id',
+    component:LayoutComponent,
+    children:[
+      {
+        path:'', component:ViewOrderComponent
+      }
+    ]
+  },
 ];
 
 @NgModule({

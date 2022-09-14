@@ -23,7 +23,7 @@ export class LoginService {
 
    // post Create Store
    verifyOTP(obj: any) {
-    return this.httpclient.post(this.baseURL + '/api/staff/login/verifyotp', obj, {
+    return this.httpclient.post(this.baseURL + '/api/auth/login/web/verifyotp', obj, {
       headers: this.headers
     });
 

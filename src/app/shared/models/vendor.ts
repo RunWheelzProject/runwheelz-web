@@ -2,7 +2,7 @@ export interface Vendor {
     id:number;
     phoneNumber: string;
     vendorPin: number;
-    garageName: string;
+    garrageName: string;
     ownerName: string;
     aadharNumber: string;
     addressLine: string;

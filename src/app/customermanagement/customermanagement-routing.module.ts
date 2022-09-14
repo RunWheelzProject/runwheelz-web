@@ -1,12 +1,23 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CustomermanagementComponent } from './customermanagement/customermanagement.component';
+import { LayoutComponent } from '../shared/components/layout/layout.component';
+import { CustomerListComponent } from './customer-list/customer-list.component';
+import { ViewCustomerComponent } from './view-customer/view-customer.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: CustomermanagementComponent
-  }
+    component:CustomerListComponent
+  },
+  {
+    path: 'viewcustomer/:id',
+    component:LayoutComponent,
+    children:[
+      {
+        path:'', component:ViewCustomerComponent
+      }
+    ]
+  },
 ];
 
 @NgModule({

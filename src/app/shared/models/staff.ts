@@ -8,7 +8,7 @@ export interface Staff {
     city:string;
     state:string;
     zipcode:number;
-    latitude:number;
-    longitude:number;
+    latitude:any;
+    longitude:any;
     RegistrationStatus:boolean;
 }

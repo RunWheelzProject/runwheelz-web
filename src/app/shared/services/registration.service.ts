@@ -29,7 +29,7 @@ export class RegistrationService {
     });
   }
   verifyVendorRequestOTP(obj: any) {
-    return this.httpclient.post(this.baseURL + '/api/vendor/registrationrequest', obj, {
+    return this.httpclient.post(this.baseURL + '/api/auth/register/vendor/verifyotp', obj, {
       headers: this.headers
     });
   }

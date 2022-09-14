@@ -1,13 +1,11 @@
 <div class="card">
 
-
     <div style="text-align: center;color: rgb(122, 92, 14);">
         <h1>RUN WHEELZ STAFF</h1>
     </div>
 
 
     <p-table #dt1 [value]="staffdata" dataKey="id" [paginator]="true" [rows]="10" [showCurrentPageReport]="true"
-        styleClass="p-datatable-customers p-datatable-gridlines"
         currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
         [rowsPerPageOptions]="[10,15,20,100]" [filterDelay]="0"
         [globalFilterFields]="['id','name','roleName','phoneNumber','aadharNumber','addressLine']">
@@ -32,7 +30,7 @@
                 </th>
                 <th pSortableColumn="name">NAME<p-sortIcon field="name"></p-sortIcon>
                 </th>
-                <th pSortableColumn="roleName">ROLENAME<p-sortIcon field="roleName"></p-sortIcon>
+                <th pSortableColumn="roleName">ROLE NAME<p-sortIcon field="roleName"></p-sortIcon>
                 </th>
                 <th pSortableColumn="aadharNumber">AADHAR NUMBER<p-sortIcon field="aadharNumber"></p-sortIcon>
                 </th>
@@ -49,7 +47,7 @@
             <tr>
                 <td>{{staff.id}}</td>
                 <td>{{staff.name}}</td>
-                <td>{{staff.roleName}}</td>
+                <td>{{staff.role.roleName}}</td>
                 <td>{{staff.aadharNumber}}</td>
                 <td>{{staff.phoneNumber}}</td>
                 <td>{{staff.addressLine}}</td>

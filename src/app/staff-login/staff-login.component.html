@@ -1,11 +1,9 @@
 <div class="body">
     <div class="card">
-
         <form [formGroup]="staffLoginForm" (ngSubmit)="onSubmit()">
-
             <div class="form-group">
                 <label for="">Runwheelz Staff Login </label><br>
-                
+
                 <div class="input-box">
                     <img class="country-flag"
                         src="https://upload.wikimedia.org/wikipedia/commons/4/41/Flag_of_India.svg">
@@ -15,7 +13,7 @@
                     <input (keypress)="keyPress($event)" required type="text" formControlName="phonenumber"
                         class="form-control" placeholder="Enter Your Mobile Number"
                         [ngClass]="{ 'is-invalid': submitted && f['phonenumber'].errors }"> <br><br>
-                        
+
                 </div>
             </div>
             <div *ngIf="submitted && f['phonenumber'].errors" class="invalid-feedback">

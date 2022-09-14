@@ -22,7 +22,7 @@ export class VendorRequestListComponent implements OnInit {
 
   ngOnInit(): void {
     const loggedInUser = JSON.parse(sessionStorage.getItem('staff_info') || '{}');
-    this.loggedInUserRole = loggedInUser.roleName;
+    this.loggedInUserRole = loggedInUser.runwheelzStaffDTO.role.roleName
 
     this.vendornewregistrationrequest.getallvendorregistrationrequests().subscribe(data => {
       this.vendorrequestdata = data;

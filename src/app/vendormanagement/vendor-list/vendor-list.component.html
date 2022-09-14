@@ -7,7 +7,7 @@
     <p-table #dt1 [value]="vendordata" dataKey="id" [paginator]="true" [rows]="10" [showCurrentPageReport]="true"
         styleClass="p-datatable-customers p-datatable-gridlines"
         currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
-        [rowsPerPageOptions]="[10,15,20,100]" [filterDelay]="0" [globalFilterFields]="['id']">
+        [rowsPerPageOptions]="[10,15,20,100]" [filterDelay]="0" [globalFilterFields]="['id','phoneNumber','ownerName','aadharNumber','addressLine']">
 
         
 
@@ -29,12 +29,15 @@
             <tr>
                 <th pSortableColumn="id">ID<p-sortIcon field="id"></p-sortIcon>
                 </th>
+                <th pSortableColumn="phoneNumber">PHONE NUMBER<p-sortIcon field="phoneNumber"></p-sortIcon>
+                </th>
+                <th pSortableColumn="vendorPin">VENDOR PIN<p-sortIcon field="vendorPin"></p-sortIcon>
+                </th>
                 <th pSortableColumn="ownerName">OWNER NAME<p-sortIcon field="ownerName"></p-sortIcon>
                 </th>
                 <th pSortableColumn="aadharNumber">AADHAR NUMBER<p-sortIcon field="aadharNumber"></p-sortIcon>
                 </th>
-                <th pSortableColumn="phoneNumber">PHONE NUMBER<p-sortIcon field="phoneNumber"></p-sortIcon>
-                </th>
+                
                 <th pSortableColumn="addressLine">ADDRESS<p-sortIcon field="addressLine"></p-sortIcon>
                 </th>
                 <th>ACTION </th>
@@ -45,10 +48,12 @@
         <ng-template pTemplate="body" let-vendor>
             <tr>
                 <td>{{vendor.id}}</td>
+                <td>{{vendor.phoneNumber}}</td>
+                <td>{{vendor.vendorPin}}</td>
                 <td>{{vendor.ownerName}}</td>
                 <td>{{vendor.aadharNumber}}</td>
-                <td>{{vendor.phoneNumber}}</td>
                 <td>{{vendor.addressLine}}</td>
+                
                 <td>
                     
 

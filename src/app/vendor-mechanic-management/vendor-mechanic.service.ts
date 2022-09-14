@@ -13,13 +13,10 @@ export class VendorMechanicService {
   constructor( public http: HttpClient) { }
 
   public getAllVendorMechanic(): Observable<any> {
-    return this.http.get(this.baseURL + '/api/vendorMechanic/getAllVendorMechanic');
+    return this.http.get(this.baseURL + '/api/vendorstaff/getAllVendorMechanic');
   }
   public getVendorMechanicById(id:number): Observable<any> {
-    return this.http.get(this.baseURL + `/api/vendorMechanic/ ${id}`);
+    return this.http.get(this.baseURL + `/api/vendorstaff/ ${id}`);
   }
-
-  
- 
   
 }

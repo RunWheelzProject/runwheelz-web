@@ -17,11 +17,7 @@ export const ROUTES: RouteInfo[] = [
     icon: 'dashboard',
     class: '',
     roles: [
-      RoleEnum.ADMIN,
-      RoleEnum.MARKETING_AGENT,
-      RoleEnum.EXECUTIVE,
-      RoleEnum.CUSTOMER,
-      RoleEnum.GUEST
+      RoleEnum.ADMIN
     ]
   },
   {
@@ -32,8 +28,7 @@ export const ROUTES: RouteInfo[] = [
     roles: [
       RoleEnum.ADMIN,
       RoleEnum.MARKETING_AGENT,
-      RoleEnum.EXECUTIVE,
-      RoleEnum.GUEST,
+      RoleEnum.EXECUTIVE
 
     ]
   },
@@ -48,23 +43,8 @@ export const ROUTES: RouteInfo[] = [
     roles: [
       RoleEnum.ADMIN,
       RoleEnum.MARKETING_AGENT,
-      RoleEnum.EXECUTIVE,
-      RoleEnum.GUEST,
-    ],
-    children: [
-      {
-        path: '/vendor-new-registration/vendor-new-registration',
-        title: 'Vendor-new-registration',
-        icon: 'person_outline',
-        class: '',
-        roles: [
-          RoleEnum.ADMIN,
-          RoleEnum.MARKETING_AGENT,
-          RoleEnum.EXECUTIVE,
-          RoleEnum.GUEST,
+      RoleEnum.EXECUTIVE
 
-        ]
-      },
     ]
   },
 
@@ -76,8 +56,7 @@ export const ROUTES: RouteInfo[] = [
     roles: [
       RoleEnum.ADMIN,
       RoleEnum.MARKETING_AGENT,
-      RoleEnum.EXECUTIVE,
-      RoleEnum.GUEST,
+      RoleEnum.EXECUTIVE
 
     ]
   },
@@ -89,20 +68,7 @@ export const ROUTES: RouteInfo[] = [
     class: '',
     roles: [
       RoleEnum.ADMIN,
-      RoleEnum.EXECUTIVE,
-      RoleEnum.GUEST,
-    ]
-  },
-
-  {
-    path: '/executive/executive',
-    title: 'Executive',
-    icon: 'person_outline',
-    class: '',
-    roles: [
-      RoleEnum.ADMIN,
-      RoleEnum.EXECUTIVE,
-      RoleEnum.GUEST
+      RoleEnum.EXECUTIVE
     ]
   },
 
@@ -113,8 +79,7 @@ export const ROUTES: RouteInfo[] = [
     class: '',
     roles: [
       RoleEnum.ADMIN,
-      RoleEnum.CUSTOMER,
-      // RoleEnum.GUEST
+      RoleEnum.CUSTOMER
     ]
   },
   
@@ -125,10 +90,6 @@ export const ROUTES: RouteInfo[] = [
     class: '',
     roles: [
       RoleEnum.ADMIN,
-      // RoleEnum.MARKETING_AGENT,
-      //  RoleEnum.EXECUTIVE,
-      // RoleEnum.CUSTOMER,
-      // RoleEnum.GUEST
     ]
   },
 ];

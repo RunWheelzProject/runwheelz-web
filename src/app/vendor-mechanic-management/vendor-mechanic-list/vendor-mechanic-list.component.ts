@@ -29,17 +29,5 @@ export class VendorMechanicListComponent implements OnInit {
   }
 
 
-  // deleteUser(vendorMechanic: VendorMechanic) {
-  //   this.confirmationService.confirm({
-  //     message: 'Are you sure you want to delete',
-  //     header: 'Confirm',
-  //     icon: 'pi pi-exclamation-triangle',
-  //     accept: () => {
-  //       this.vendorMechanicdata = this.vendorMechanicdata.filter(val => val.id !== vendorMechanic.id);
-  //       this.messageService.add({ severity: 'success', summary: 'Successful', detail: 'Staff Deleted', life: 3000 });
-  //     }
-  //   });
-  // }
-
 
 }

@@ -21,11 +21,14 @@ export class StaffmanagementService {
     return this.httpclient.put(this.baseURL + '/api/staff',body);
   }*/
 
+  // public updateStaffinfo(id: number, body: any): Observable<any> {
+  //   return this.httpclient.put(this.baseURL +'/api/staff/'+ `${id}`,body);
+  // }
   public updateStaffinfo(id: number, body: any): Observable<any> {
-    return this.httpclient.put(this.baseURL +'/api/staff/'+ `${id}`,body);
+    return this.httpclient.put(this.baseURL +'/api/staff/editStaff',body);
   }
   public getAllStaff(): Observable<any> {
-    return this.http.get(this.baseURL + '/api/staff');
+    return this.http.get(this.baseURL + '/api/staff/getAllStaff');
   }
   
   public getStaffById(id:number): Observable<any> {
