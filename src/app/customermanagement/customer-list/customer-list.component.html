@@ -1,5 +1,7 @@
 <div class="container">
-
+    <div style="text-align: center;color: rgb(122, 92, 14);">
+        <h1>RUN WHEELZ CUSTOMERS LIST</h1>
+    </div>
     <p-table #dt1 [value]="customerdata" dataKey="id" [paginator]="true" [rows]="10" [showCurrentPageReport]="true"
         styleClass="p-datatable-customers p-datatable-gridlines"
         currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
@@ -37,6 +39,8 @@
                 <td>
                     <a [routerLink]="['/viewcustomer/', customer.id]">
                         <span class="material-icons mm-eye"> visibility </span></a>
+                    <a [routerLink]="['/customerHistory/', customer.id]">
+                        <span class="material-icons mm-history"> history </span></a>
                 </td>
             </tr>
         </ng-template>

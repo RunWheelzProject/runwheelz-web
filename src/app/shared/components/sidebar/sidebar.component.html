@@ -1,19 +1,103 @@
+
+<!-- <div class="sidebar-expanded mm-sideBaar">
+    <ul class="list-group mm-listGroup">
+        <li routerLinkActive="active" *ngFor="let menuItem of menuItems; let  i = index" class="list-group-item d-flex align-items-start flex-column mm-listGroupItem">
+            <a class="nav-link" [routerLink]="[menuItem.path]" *ngIf="menuItem?.type != 'dropdown'  else default">
+                <div class=" d-flex w-100 justify-content-start align-items-center  mm-listMuted">
+                    <span class="material-icons mm-icon"> {{ menuItem.icon }}</span>
+                    <span id="collapse-text" class="menu-collapsed mm-text"> {{ menuItem.title }}</span>
+
+                </div>
+            </a>
+
+            <ng-template #default>
+                <a class="w-100" [ngClass]="{'nav-link': true, 'open': isOpen}" (click)="submenulistToggle(i, menuItem.path)">
+                    <div class="d-flex w-100 justify-content-start align-items-center mm-listMuted position-relative">
+                        <span class="material-icons mm-icon"> {{ menuItem.icon }}</span>
+                        <span id="collapse-text" class="menu-collapsed mm-text"> {{ menuItem.title }}</span >
+                          <span class="material-icons mm-arrowdown">
+                            keyboard_arrow_down
+                            </span>
+                    </div>
+                </a>
+            </ng-template>
+
+
+            <ul *ngIf="menuItem?.children" class="{{'child-menu-'+i}} p-0" [ngClass]="{'d-none': menuItem.class != 'open'}">
+                <li routerLinkActive="active" *ngFor="let menuItem of menuItem?.children" class="list-group-item d-flex align-items-center mm-listGroupItem">
+                    <a *ngIf="storeId else withoutParam" class="nav-link" [routerLink]="[menuItem.path]" >
+                        <div class="d-flex w-100 justify-content-start align-items-center mm-listMuted">
+                            <span class="material-icons mm-icon"> {{ menuItem.icon }}</span>
+                            <span id="collapse-text" class="menu-collapsed mm-text mm-childrens">{{ menuItem.title }}</span>
+                        </div>
+                    </a>
+                    <ng-template #withoutParam>
+                        [routerLink]="[menuItem.path]"
+                        <a class="nav-link" [routerLink]="[menuItem.path]">
+                            <div class="d-flex w-100 justify-content-start align-items-center mm-listMuted">
+                                <span id="collapse-text" class="menu-collapsed mm-text mm-childrens">{{ menuItem.title }}</span>
+                            </div>
+                        </a>
+                    </ng-template>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>
+
+
+
+ -->
+
+
+
+
+
+
+
+
+
 <!-- <ul>
         <li *ngFor="let menuItem of menuItems;let i = index" routerLink="{{menuItem.path}}">
                 <span>{{menuItem.title}}</span>
         </li>
     </ul> -->
 
-<div class="sidebar-expanded mm-sideBar">
+
+    
+ <div class="sidebar-expanded mm-sideBar">
     <ul class="list-group mm-listGroup">
         <li routerLinkActive="active" *ngFor="let menuItem of menuItems; let  i = index"
             class="list-group-item d-flex align-items-start flex-column mm-listGroupItem">
-            <a class="nav-link" [routerLink]="[menuItem.path]" >
+            <a class="nav-link" [routerLink]="[menuItem.path]" *ngIf="menuItem?.type != 'dropdown'  else default" >
                 <div class=" d-flex w-100 justify-content-start align-items-center  mm-listMuted">
                     <span class="material-icons mm-icon"> {{ menuItem.icon }}</span>
                     <span id="collapse-text" class="menu-collapsed mm-text"> {{ menuItem.title }}</span>
                 </div>
             </a>
+            <ng-template #default>
+                <a class="w-100" [ngClass]="{'nav-link': true, 'open': isOpen}" (click)="submenulistToggle(i, menuItem.path)">
+                    <div class="d-flex w-100 justify-content-start align-items-center mm-listMuted position-relative">
+                        <span class="material-icons mm-icon"> {{ menuItem.icon }}</span>
+                        <span id="collapse-text" class="menu-collapsed mm-text"> {{ menuItem.title }}</span >
+                          <span class="material-icons mm-arrowdown">
+                            keyboard_arrow_down
+                            </span>
+                            
+                    </div>
+                </a>
+            </ng-template>
+            
+            <ul *ngIf="menuItem?.children" class="{{'child-menu-'+i}} p-0" [ngClass]="{'d-none': menuItem.class != 'open'}">
+                <li routerLinkActive="active" *ngFor="let menuItem of menuItem?.children"
+                 class="list-group-item d-flex align-items-center mm-listGroupItem">
+                    <a class="nav-link" [routerLink]="[menuItem.path]" >
+                        <div class="d-flex w-100 justify-content-start align-items-center mm-listMuted">
+                            <span id="collapse-text" class="menu-collapsed mm-text mm-childrens">{{ menuItem.title }}</span>
+                        </div>
+                    </a>
+                </li>
+            </ul>
         </li>
     </ul>
-</div>
+</div> 

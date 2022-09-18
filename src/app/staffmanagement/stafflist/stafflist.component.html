@@ -13,7 +13,7 @@
         <!-- Global Filter User Input-->
 
         <ng-template pTemplate="caption">
-            <button pButton pRipple *ngIf="loggedInUserRole=== 'ADMIN'" label="Add New Staff" icon="pi pi-plus"
+            <button pButton  *ngIf="loggedInUserRole=== 'ADMIN'" label="Add New Staff" icon="pi pi-plus"
                 class="p-button-success p-mr-2" routerLink="/staffregister"></button>
             <div class="search">
                 <input class="search" pInputText type="text" pInputText size="20"

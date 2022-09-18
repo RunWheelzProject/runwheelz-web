@@ -1,6 +1,6 @@
 <div class="card">
     <div style="text-align: center;color: rgb(122, 92, 14);">
-        <h1>RUN WHEELZ VENDORSREQUESTLIST</h1>
+        <h1>RUN WHEELZ VENDORS REQUEST LIST</h1>
     </div>
 
 
@@ -47,16 +47,15 @@
                 <td>{{vendorrequest.garrageName}}</td>
                 <td>
                     <a [routerLink]="['/viewvendorrequest/', vendorrequest.id]">
-                        <span class="material-icons mm-edit"> visibility </span></a>
+                        <span class="material-icons mm-eye"> visibility </span></a>
 
                     <a *ngIf="loggedInUserRole=== 'ADMIN''MARKETING_AGENT'"
                         [routerLink]="['/editvendorrequest/', vendorrequest.id]">
                         <span class="material-icons mm-edit">edit </span></a>
 
                     <a href="#" *ngIf="loggedInUserRole=== 'ADMIN'"
-                        [routerLink]="['/assignvendorrequest/', vendorrequest.id]">Assign</a>
-
-                    
+                        [routerLink]="['/assignvendorrequest/', vendorrequest.id]">
+                        <span class="material-icons mm-assign">person_add_alt_1</span></a>
 
                 </td>
             </tr>

@@ -23,8 +23,8 @@ export class AddnewStaffComponent implements OnInit {
   longitude!: number;
 
   staffDetailsForm = this.formBuilder.group({
-    id: [{ value: '', disabled: false }],
-    phoneNumber: [{ value: '', disabled: false }],
+    id: [{ value: '', disabled: true }],
+    phoneNumber: [{ value: '', disabled: true }],
     name: ['', Validators.required],
     role: ['', Validators.required],
     aadharNumber: ['', [Validators.required, Validators.pattern("^[0-9]*$"), Validators.minLength(12), Validators.maxLength(12)]],
