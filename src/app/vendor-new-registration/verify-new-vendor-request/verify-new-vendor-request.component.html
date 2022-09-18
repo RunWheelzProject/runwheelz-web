@@ -11,7 +11,7 @@
             class="ml-2 text-yellow-500 cursor-pointer">Resend</a></p>
   
         <div>
-          <button class="btn btn-success mt-4" (click)="handleClick()" [disabled]="!otp">Verify OTP</button>
+          <button class="btn verify mt-4" (click)="handleClick()" [disabled]="!otp">Verify OTP</button>
         </div>
       </form>
       <div class="alert alert-danger" *ngIf="errorMessage">

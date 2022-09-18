@@ -85,8 +85,7 @@ export class EditVendorComponent implements OnInit {
       zipcode: this.vendordata.zipcode,
       latitude: this.vendordata.latitude,
       longitude: this.vendordata.longitude,
-      //latitude: this.latitude,
-      //longitude: this.longitude,
+      
 
     });
   }
@@ -114,10 +113,10 @@ export class EditVendorComponent implements OnInit {
         city: this.vendorForm.city,
         state: this.vendorForm.state,
         zipcode: this.vendorForm.zipcode,
-        latitude: this.vendorForm.latitude,
-        longitude: this.vendorForm.longitude,
-        // latitude: this.latitude,
-        // longitude: this.longitude,
+       // latitude: this.vendorForm.latitude,
+       // longitude: this.vendorForm.longitude,
+         latitude: this.latitude,
+         longitude: this.longitude,
       }
       console.log(obj);
 
@@ -127,7 +126,9 @@ export class EditVendorComponent implements OnInit {
       })
     }
   }
-
+  cancel(){
+    
+  }
 }
 
 

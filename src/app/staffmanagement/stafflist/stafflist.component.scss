@@ -1,28 +1,41 @@
 .search{
     float:right;
-    }
-    .search input{
+}
+.search input{
         box-sizing: border-box;
         
     }
-    .mm-eye {
+.mm-eye {
+        color:#4e0258;
         position: relative;
         margin-left: 2px;
         top: 2px;
         font-size: 18px;
         padding-left: 2px;
     }
-    .mm-edit {
+.mm-edit {
+        color:#4e0258;
         position: relative;
         margin-left: 2px;
         top: 2px;
         font-size: 18px;
         padding-left: 2px;
     }
-    .mm-delete {
+.mm-delete {
+        color:#4e0258;
         position: relative;
         margin-left: 2px;
         top: 2px;
         font-size: 18px;
         padding-left: 2px;
     }
+.addnew{
+    background-color: #4e0258;
+    border-radius: 6px;
+    padding: 5px 20px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 24px;
+    color: white;
+}

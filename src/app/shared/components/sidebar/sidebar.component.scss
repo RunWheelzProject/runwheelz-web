@@ -15,45 +15,67 @@
                         margin-left: 24px;
                     }
                     .mm-icon {
-                        color:green;
+                        color:#4e0258;
                         font-size: 20px;
                         line-height: 22px;
                         margin-right: 10px;
                         margin-top: -10px;
                     }
                     .mm-text {
-                        color: #666666;
+                        color: #4e0258;
                         text-transform: capitalize;
                         
                         font-style: normal;
                         font-weight: 500;
                         font-size: 16px;
                         line-height: 24px;
-                        padding: 1px 9px 9px 9px;
+                        padding: 1px 5px 2px 2px;
                     }
                 }
             }
             &.active {
-                background-color:rgb(191, 224, 191);
-                border-left: 2px solid red;
+                background-color:rgb(184, 230, 175);
+                border-left: 2px solid #4e0258;
                 padding-bottom: 0px;
                 a {
                     .mm-listMuted {
                         .mm-icon {
-                            color:green;
+                            color:#4e0258;
                         }
                         .mm-text {
-                            color:green;
+                            color:#4e0258;
                             font-weight: 600;
                         }
                         .mm-arrowdown {
-                            color:green;
+                            color: #4e0258;
                         }
                     }
                 }
             }
         }
-        
+        /* submenu dropdown */
+ .mm-subMenu {
+    position: relative;
+    top: -30px;
+    label {
+        font-style: normal;
+        font-weight: normal;
+        font-size: 16px;
+        color: black;
+        padding: 10px 0px 25px 35px;
+    }
+    .mm-listSubGroupItem {
+        border: none;
+        outline: none;
+        .mm-text {
+            font-style: normal;
+            font-weight: normal;
+            font-size: 16px;
+            line-height: 24px;
+            color: gray;
+            padding-left: 38px;
+        }
     }
 }
-
+    }
+}

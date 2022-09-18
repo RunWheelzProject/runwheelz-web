@@ -35,7 +35,7 @@ export const ROUTES: RouteInfo[] = [
 
 
   {
-    path: '/vendormanagement/vendormanagement',
+    path: '/Vendor-Management',
     title: 'Vendor-Management',
     icon: 'person_outline',
     class: '',
@@ -44,22 +44,35 @@ export const ROUTES: RouteInfo[] = [
       RoleEnum.ADMIN,
       RoleEnum.MARKETING_AGENT,
       RoleEnum.EXECUTIVE
-
+    ],
+    children: [
+      {
+        path: '/vendormanagement/vendormanagement',
+        title: 'Vendor-List',
+        icon: 'person_outline',
+        class: '',
+        roles: [
+          RoleEnum.ADMIN,
+          RoleEnum.MARKETING_AGENT,
+          RoleEnum.EXECUTIVE
+        ]
+      },
+      {
+        path: '/vendor-new-registration/vendor-new-registration',
+        title: 'Vendor-Initial-Request',
+        icon: 'person_outline',
+        class: '',
+        roles: [
+          RoleEnum.ADMIN,
+          RoleEnum.MARKETING_AGENT,
+          RoleEnum.EXECUTIVE
+    
+        ]
+      },
     ]
   },
 
-  {
-    path: '/vendor-new-registration/vendor-new-registration',
-    title: 'Vendor-new-registration',
-    icon: 'person_outline',
-    class: '',
-    roles: [
-      RoleEnum.ADMIN,
-      RoleEnum.MARKETING_AGENT,
-      RoleEnum.EXECUTIVE
-
-    ]
-  },
+  
 
   {
     path: '/vendor-mechanic-management/vendor-mechanic-management',
@@ -73,25 +86,54 @@ export const ROUTES: RouteInfo[] = [
   },
 
   {
-    path: '/customermanagement/customermanagement',
+    path: 'Customer-Management',
     title: 'Customer-Management',
     icon: 'groups',
     class: '',
+    type:'dropdown',
     roles: [
       RoleEnum.ADMIN,
       RoleEnum.CUSTOMER
+    ],
+    children: [
+      {
+        path: '/customermanagement/customermanagement',
+        title: 'Customer-List',
+        icon: 'workspaces',
+        class: '',
+        roles: [
+          RoleEnum.ADMIN,
+          RoleEnum.MARKETING_AGENT,
+          RoleEnum.EXECUTIVE
+        ]
+      }
     ]
   },
   
   {
-    path: '/ordersmanagement/ordersmanagement',
+    path: 'Orders-Management',
     title: 'Orders-Management',
     icon: 'workspaces',
     class: '',
+    type: "dropdown",
     roles: [
       RoleEnum.ADMIN,
+    ],
+    children: [
+      {
+        path: '/ordersmanagement/ordersmanagement',
+        title: 'Orders-List',
+        icon: 'workspaces',
+        class: '',
+        roles: [
+          RoleEnum.ADMIN,
+          RoleEnum.MARKETING_AGENT,
+          RoleEnum.EXECUTIVE
+        ]
+      }
     ]
   },
+
 ];
 
 

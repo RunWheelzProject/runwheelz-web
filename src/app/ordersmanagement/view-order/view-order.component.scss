@@ -1,7 +1,63 @@
-.container{
-    padding-left: 10px;
-    margin-left: 10px;
-    border: 2px;
-   width: 400px;
-   background-color:aliceblue;
+// .container1{
+//     padding-left: 20px;
+//     margin-left: 10px;
+//     border: 2px;
+//    width: 300px;
+//    background-color:aliceblue;
+// }
+// .container2{
+//     padding-left: 20px;
+//     margin-left: 10px;
+//     border: 0px;
+//    width: 300px;
+//    background-color:aliceblue;
+// }
+// .container3{
+//     padding-left: 20px;
+//     margin-left: 10px;
+//     right: 2000px;
+//     border: 2px;
+//    width: 300px;
+//    background-color:aliceblue;
+// }
+.back{
+    background-color: #4e0258;
+    border-radius: 6px;
+    padding: 5px 20px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 24px;
+    color: white;
 }
+
+
+  
+  .row {
+    margin-left:-5px;
+    margin-right:-5px;
+  }
+    
+  .column {
+    float: left;
+    width: 50%;
+    padding: 5px;
+  }
+  
+  
+  
+  table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    border: 1px solid #ddd;
+  }
+  
+  th, td {
+    text-align: left;
+    padding: 16px;
+  }
+  
+  tr:nth-child(even) {
+    background-color:aliceblue;
+  }

@@ -1,41 +1,61 @@
 <div class="d-flex flex-row-reverse bd-highlight">
-    <a href="#" routerLink="/ordersmanagement/ordersmanagement" class="btn btn-primary">Back</a>
-    </div>
-    
-    <hr/>
-    <div class="container" >
-        <h1> ORDERS DETAILS</h1>
+    <a href="#" routerLink="/ordersmanagement/ordersmanagement" class="btn back">Back</a>
+
+</div>
+
+<div class="row">
+    <div class="column">
         <table>
-        <th>
-        
-        <tr>
-            <td><h3>ServiceType</h3></td>
-            <td> : </td>
-            <td><h3> {{ordersdata.serviceType}}</h3></td>
-        </tr>
-        <tr>
-            <td><h3>Make</h3></td>
-            <td> : </td>
-            <td><h3> {{ordersdata.make}}</h3></td>
-        </tr>
-        <tr>
-            <td><h3>VehicleNumber</h3></td>
-            <td> : </td>
-            <td><h3> {{ordersdata.vehicleNumber}}</h3></td>
-        </tr>
-        <tr>
-            <td><h3>AcceptedByVendor</h3></td>
-            <td> : </td>
-            <td><h3> {{ordersdata.acceptedByVendor}}</h3></td>
-        </tr>
-        <tr>
-            <td><h3>AssignedToMechanic</h3></td>
-            <td> : </td>
-            <td><h3> {{ordersdata.assignedToMechanic}}</h3></td>
-        </tr>
-          
-        </th>
+            <h1> ORDERS DETAILS</h1>
+            <tr>
+                <th>Order Id</th>
+                <td>{{ordersdata.id}}</td>
+            </tr>
+            <tr>
+                <th>Service Type</th>
+                <td>{{ordersdata.serviceType}}</td>
+            </tr>
+            <tr>
+                <th>Make</th>
+                <td>{{ordersdata.make}}</td>
+            </tr>
+            <tr>
+                <th>Latitude</th>
+                <td>{{ordersdata.latitude}}</td>
+            </tr>
+            <tr>
+                <th>Longitude</th>
+                <td>{{ordersdata.longitude}}</td>
+            </tr>
+
+        </table>
+    </div>
+    <div class="column">
+        <table>
+            <h1> VENDOR DETAILS</h1>
+            <tr>
+                <th>AcceptedByVendor</th>
+                <td>{{ordersdata.acceptedByVendor}}</td>
+            </tr>
+            <tr>
+                <th>AssignedToMechanic</th>
+                <td>{{ordersdata.assignedToMechanic}}</td>
+            </tr>
+
         </table>
     </div>
 
-    
+    <div class="column">
+        <table>
+            <h1> CUSTOMER DETAILS</h1>
+            <tr>
+                <th>VehicleNumber</th>
+                <td>{{ordersdata.vehicleNumber}}</td>
+            </tr>
+            <tr>
+                <th>RequestedCustomer</th>
+                <td>{{ordersdata.requestedCustomer}}</td>
+            </tr>
+        </table>
+    </div>
+</div>

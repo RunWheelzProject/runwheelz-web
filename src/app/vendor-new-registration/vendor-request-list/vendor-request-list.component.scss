@@ -1,11 +1,12 @@
 .search{
     float:right;
-    }
-    .seacrh input{
+}
+.seacrh input{
         box-sizing: border-box;
         
-    }
-    .mm-eye {
+}
+.mm-eye {
+        color:#4e0258;
     position: relative;
     margin-left: 2px;
     top: 2px;
@@ -13,13 +14,24 @@
     padding-left: 2px;
 }
 .mm-edit {
+    color:#4e0258;
     position: relative;
     margin-left: 2px;
     top: 2px;
     font-size: 18px;
     padding-left: 2px;
 }
+.mm-assign {
+    color:#4e0258;
+    position: relative;
+    margin-left: 2px;
+    top: 2px;
+    font-size: 18px;
+    padding-left: 2px;
+}
+
 .mm-delete {
+    color:#4e0258;
     position: relative;
     margin-left: 2px;
     top: 2px;

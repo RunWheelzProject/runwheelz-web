@@ -9,27 +9,11 @@
     background-color: hwb(45 92% 5%);
  }
 
- .image img {
-    width: 100%;
-    border-top-right-radius: 5px;
-    border-top-left-radius: 5px;
-
- }
-
  .card:hover {
     box-shadow: 0 4px 20px 0 #2a95ca2f;
     cursor: pointer;
  }
 
-
- .image img:hover {
-    -ms-transform: scale(1.0);
-    -webkit-transform: scale(1.0);
-    transform: scale(1.0);
- }
-
- /* .image img:hover{
-  transform:  scale(1.2);transform: translate(-2%,-2%);} */
 
  .title {
     text-align: center;

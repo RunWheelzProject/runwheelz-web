@@ -17,8 +17,8 @@ export class EditStaffComponent implements OnInit {
   staffdata!: Staff;
   rolesList: any;
   staffForm: any;
-  lat!: number;
-  long!: number;
+  latitude!: number;
+  longitude!: number;
 
 
   constructor(private formBuilder: FormBuilder, private staffmanagementService: StaffmanagementService, public route: ActivatedRoute,
@@ -40,9 +40,9 @@ export class EditStaffComponent implements OnInit {
         if (position) {
           console.log("Latitude: " + position.coords.latitude +
             "Longitude: " + position.coords.longitude);
-          this.lat = position.coords.latitude;
-          this.long = position.coords.longitude;
-          console.log(this.lat, this.long);
+          this.latitude = position.coords.latitude;
+          this.longitude = position.coords.longitude;
+          console.log(this.latitude, this.longitude);
         }
       })
     }
@@ -118,8 +118,10 @@ export class EditStaffComponent implements OnInit {
         city: this.staffForm.city,
         state: this.staffForm.state,
         zipcode: this.staffForm.zipcode,
-        latitude: this.staffForm.latitude,
-        longitude: this.staffForm.longitude,
+        //latitude: this.staffForm.latitude,
+        //longitude: this.staffForm.longitude,
+        latitude: this.latitude,
+        longitude: this.longitude,
 
       }
       console.log(obj);
