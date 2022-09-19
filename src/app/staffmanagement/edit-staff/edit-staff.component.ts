@@ -118,10 +118,10 @@ export class EditStaffComponent implements OnInit {
         city: this.staffForm.city,
         state: this.staffForm.state,
         zipcode: this.staffForm.zipcode,
-        //latitude: this.staffForm.latitude,
-        //longitude: this.staffForm.longitude,
-        latitude: this.latitude,
-        longitude: this.longitude,
+        latitude: this.staffForm.latitude,
+        longitude: this.staffForm.longitude,
+        //latitude: this.latitude,
+        //longitude: this.longitude,
 
       }
       console.log(obj);
