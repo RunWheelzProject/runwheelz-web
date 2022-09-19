@@ -22,7 +22,7 @@ import { MatBadgeModule} from '@angular/material/badge';
     SidebarComponent,
     HeaderComponent,
     LayoutComponent,
-    FooterComponent
+    FooterComponent,
   ],
   imports: [
     CommonModule,

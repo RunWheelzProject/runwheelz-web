@@ -48,6 +48,7 @@ import { CustomermanagementModule } from './customermanagement/customermanagemen
 import { CustomerListComponent } from './customermanagement/customer-list/customer-list.component';
 import { OrdersListComponent } from './ordersmanagement/orders-list/orders-list.component';
 import { OrdersmanagementModule } from './ordersmanagement/ordersmanagement.module';
+import { PrivacyPolicyModule } from './privacy-policy/privacy-policy.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -89,6 +90,7 @@ import { OrdersmanagementModule } from './ordersmanagement/ordersmanagement.modu
     VendorNewRegistrationModule,
     CustomermanagementModule,
     OrdersmanagementModule,
+    PrivacyPolicyModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyBphyueg6xoPG3upFK_6KUzmR_mvbCdcsA',
       libraries: ['places']
