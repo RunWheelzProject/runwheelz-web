@@ -42,13 +42,13 @@ font-weight: bold;
 
 .menu-button{
   width:100px;
-  
-
+  cursor: pointer;
 }
 .notification-button{
  float:right;
  position:absolute;
  right:180px;
+ cursor: pointer;
  //margin-top: 8px;
 }
 .logout{
@@ -56,6 +56,7 @@ font-weight: bold;
  position:absolute;
  //right:100px;
  left:1380px;
+ cursor: pointer;
 
 }
 
